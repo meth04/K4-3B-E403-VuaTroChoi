@@ -192,7 +192,7 @@
         <div class="metrics">
           <div class="metric"><div class="metric-value" id="savedValue">0</div><div class="metric-label">Câu hỏi đã duyệt</div></div>
           <div class="metric"><div class="metric-value" id="sourceValue">0%</div><div class="metric-label">Có provenance đúng</div></div>
-          <div class="metric"><div class="metric-value">1/1</div><div class="metric-label">Case ngoài phạm vi bị chặn</div></div>
+          <div class="metric"><div class="metric-value" id="scopeBlockValue">—/3</div><div class="metric-label">Case ngoài phạm vi bị chặn (eval)</div></div>
         </div>
       </main>
     </div>
@@ -200,43 +200,137 @@
   <div class="toast" id="toast" role="status"></div>
   <script>
     const lessons = {
-      graph: {
-        title: 'Graph tri thức cơ bản', description: 'Quan hệ giữa concept, thực thể và cạnh trong một graph.', source: '6 đoạn transcript', confidence: '92%',
-        question: 'Trong graph tri thức, thành phần nào biểu diễn mối quan hệ giữa hai thực thể?', answers: ['Nút (node)', 'Cạnh (edge)', 'Bộ sưu tập tài liệu', 'Bộ sinh số ngẫu nhiên'], correct: 1,
-        explanation: 'Cạnh (edge) mô tả quan hệ có hướng hoặc không hướng giữa hai nút trong graph.', quote: '“Một graph được tạo bởi các nút đại diện cho thực thể và các cạnh biểu diễn quan hệ giữa chúng.”', ref: '[T03-014] · Transcript Graph tri thức · đoạn 14'
-      },
-      evidence: {
-        title: 'Provenance trong nội dung học tập', description: 'Cách truy ngược một nhận định về đúng đoạn tài liệu gốc.', source: '4 đoạn transcript', confidence: '96%',
-        question: 'Provenance giúp người duyệt kiểm tra điều gì trong một câu hỏi được sinh?', answers: ['Màu giao diện', 'Nguồn gốc của nhận định', 'Tốc độ mạng', 'Số lượng người dùng'], correct: 1,
-        explanation: 'Provenance liên kết nhận định với đoạn transcript hoặc trang slide cụ thể để người duyệt kiểm tra.', quote: '“Mỗi nhận định cần giữ lại dấu vết về đoạn nội dung đã tạo ra nhận định đó.”', ref: '[T05-022] · Transcript Provenance · đoạn 22'
-      },
-      quiz: {
-        title: 'Thiết kế câu hỏi trắc nghiệm', description: 'Các thành phần của một câu hỏi có một đáp án đúng.', source: '5 đoạn transcript', confidence: '89%',
-        question: 'Một câu hỏi trắc nghiệm tốt cần được kiểm tra điều gì trước khi xuất bản?', answers: ['Chỉ độ dài câu hỏi', 'Đáp án đúng và căn cứ nội dung', 'Tên người tạo', 'Màu của nút bấm'], correct: 1,
-        explanation: 'Cần kiểm tra đáp án đúng và căn cứ nội dung để tránh câu hỏi sai hoặc không thể xác minh.', quote: '“Trước khi xuất bản, người viết cần xác minh cả đáp án và căn cứ của câu hỏi.”', ref: '[T04-031] · Transcript Thiết kế quiz · đoạn 31'
-      }
+      graph: { title: 'Graph tri thức cơ bản', description: 'Quan hệ giữa concept, thực thể và cạnh trong một graph.', source: '4 đoạn nguồn synthetic' },
+      evidence: { title: 'Provenance trong nội dung học tập', description: 'Cách truy ngược một nhận định về đúng đoạn tài liệu gốc.', source: '4 đoạn nguồn synthetic' },
+      quiz: { title: 'Thiết kế câu hỏi trắc nghiệm', description: 'Các thành phần của một câu hỏi có một đáp án đúng.', source: '4 đoạn nguồn synthetic' }
     };
     const $ = (id) => document.getElementById(id);
     let current = null;
+    let currentResult = null;
     let attempts = 0;
     let saved = 0;
+    let sourcedOutputs = 0;
     const lessonSelect = $('lesson');
-    const announce = (message) => { const toast = $('toast'); toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2600); };
-    const setStep = (active) => [1,2,3,4].forEach((step) => { const node = $('step' + step); node.classList.toggle('active', step === active); node.classList.toggle('done', step < active); });
-    const updateMetrics = () => { $('attemptValue').textContent = attempts; $('savedValue').textContent = saved; $('sourceValue').textContent = attempts ? '100%' : '0%'; $('attemptDetail').textContent = attempts ? attempts + ' lượt có nguồn kiểm tra được' : 'Chưa có lượt đánh giá'; };
-    lessonSelect.addEventListener('change', () => { current = lessons[lessonSelect.value]; $('scopeCard').hidden = !current; $('generate').disabled = !current; if (current) { $('scopeTitle').textContent = current.title; $('scopeDescription').textContent = current.description; $('scopeSource').textContent = current.source; setStep(1); } });
-    $('generate').addEventListener('click', () => {
-      if (!current) return;
-      $('systemStatus').textContent = 'Đang phân tích'; $('systemStatus').className = 'status'; $('generate').disabled = true; setStep(2);
-      setTimeout(() => {
-        $('emptyState').style.display = 'none'; $('questionContent').classList.add('visible'); $('draftStatus').textContent = 'Chờ duyệt'; $('draftStatus').className = 'status'; $('questionText').textContent = current.question; $('explanation').textContent = current.explanation; $('sourceQuote').textContent = current.quote; $('sourceRef').textContent = current.ref; $('confidence').textContent = 'Provenance: ' + current.confidence; $('answers').innerHTML = current.answers.map((answer, index) => '<div class="answer ' + (index === current.correct ? 'correct' : '') + '"><span class="letter">' + String.fromCharCode(65 + index) + '.</span><span>' + answer + '</span></div>').join(''); $('systemStatus').textContent = 'Đã phân tích'; $('systemStatus').className = 'status good'; setStep(3); $('generate').disabled = false; announce('Đã sinh bản nháp. Hãy kiểm tra nguồn trước khi duyệt.');
-      }, 650);
+    const announce = (message) => { const toast = $('toast'); toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3000); };
+    const setStep = (active) => [1, 2, 3, 4].forEach((step) => { const node = $('step' + step); node.classList.toggle('active', step === active); node.classList.toggle('done', step < active); });
+    const setStatus = (id, text, tone = '') => { const node = $(id); node.textContent = text; node.className = `status${tone ? ` ${tone}` : ''}`; };
+    const updateMetrics = () => {
+      $('attemptValue').textContent = attempts;
+      $('savedValue').textContent = saved;
+      $('sourceValue').textContent = attempts ? `${Math.round((sourcedOutputs / attempts) * 100)}%` : '0%';
+      $('attemptDetail').textContent = attempts ? `${sourcedOutputs}/${attempts} lượt có source ref từ AI` : 'Chưa có lượt gọi AI';
+    };
+    const renderAnswers = (result) => {
+      const container = $('answers');
+      container.replaceChildren();
+      result.answers.forEach((answer, index) => {
+        const item = document.createElement('div');
+        item.className = `answer${index === result.correctIndex ? ' correct' : ''}`;
+        const letter = document.createElement('span');
+        letter.className = 'letter';
+        letter.textContent = `${String.fromCharCode(65 + index)}.`;
+        const text = document.createElement('span');
+        text.textContent = answer;
+        item.append(letter, text);
+        container.append(item);
+      });
+    };
+    const renderResult = (result) => {
+      $('emptyState').style.display = 'none';
+      $('questionContent').classList.add('visible');
+      $('editBox').classList.remove('visible');
+      if (result.status !== 'generated') {
+        $('questionText').textContent = 'Chưa sinh câu hỏi để đảm bảo an toàn.';
+        $('answers').replaceChildren();
+        $('explanation').textContent = result.reason;
+        $('sourceQuote').textContent = 'Hệ thống dừng vì nguồn hiện có chưa đủ hoặc yêu cầu nằm ngoài phạm vi.';
+        $('sourceRef').textContent = result.provenance.map((source) => source.ref).join(' · ') || 'Không có source ref phù hợp';
+        $('confidence').textContent = result.status === 'out_of_scope' ? 'Ngoài phạm vi' : 'Cần làm rõ';
+        setStatus('draftStatus', 'Cần người dạy xử lý', 'bad');
+        return;
+      }
+      $('questionText').textContent = result.question;
+      $('explanation').textContent = result.explanation;
+      $('sourceQuote').textContent = result.provenance.map((source) => `“${source.quote}”`).join(' ');
+      $('sourceRef').textContent = result.provenance.map((source) => source.ref).join(' · ');
+      $('confidence').textContent = `${result.provenance.length} source ref · ${result.confidence}`;
+      renderAnswers(result);
+      setStatus('draftStatus', 'Chờ duyệt');
+    };
+    lessonSelect.addEventListener('change', () => {
+      current = lessons[lessonSelect.value];
+      currentResult = null;
+      $('scopeCard').hidden = !current;
+      $('generate').disabled = !current;
+      $('questionContent').classList.remove('visible');
+      $('emptyState').style.display = 'grid';
+      if (current) {
+        $('scopeTitle').textContent = current.title;
+        $('scopeDescription').textContent = current.description;
+        $('scopeSource').textContent = current.source;
+        setStep(1);
+      }
     });
-    $('approve').addEventListener('click', () => { if (!current) return; attempts++; saved++; $('draftStatus').textContent = 'Đã duyệt'; $('draftStatus').className = 'status good'; $('systemStatus').textContent = 'Đã lưu'; $('systemStatus').className = 'status good'; setStep(4); updateMetrics(); announce('Đã lưu câu hỏi vào ngân hàng quiz.'); });
-    $('reject').addEventListener('click', () => { if (!current) return; attempts++; $('draftStatus').textContent = 'Đã loại'; $('draftStatus').className = 'status bad'; $('systemStatus').textContent = 'Cần xem lại'; $('systemStatus').className = 'status bad'; updateMetrics(); announce('Đã loại bản nháp. Không có câu hỏi được lưu.'); });
-    $('edit').addEventListener('click', () => { $('editBox').classList.add('visible'); $('editText').value = $('questionText').textContent; $('editText').focus(); });
-    $('saveEdit').addEventListener('click', () => { if ($('editText').value.trim()) { $('questionText').textContent = $('editText').value.trim(); $('editBox').classList.remove('visible'); $('draftStatus').textContent = 'Đã sửa, chờ duyệt'; announce('Đã cập nhật bản sửa. Kiểm tra lại nguồn rồi duyệt.'); } });
-    $('regenerate').addEventListener('click', () => { $('questionContent').classList.remove('visible'); setTimeout(() => $('generate').click(), 180); });
+    $('generate').addEventListener('click', async () => {
+      if (!current) return;
+      setStatus('systemStatus', 'Đang gọi AI');
+      $('generate').disabled = true;
+      setStep(2);
+      try {
+        const response = await fetch('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lessonKey: lessonSelect.value, caseId: 'interactive' })
+        });
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload?.error?.message || 'Không thể gọi AI.');
+        currentResult = payload.result;
+        attempts += 1;
+        if (currentResult.provenance.length) sourcedOutputs += 1;
+        renderResult(currentResult);
+        updateMetrics();
+        setStatus('systemStatus', 'AI đã phản hồi', currentResult.status === 'generated' ? 'good' : 'bad');
+        setStep(3);
+        announce(currentResult.status === 'generated' ? 'Đã sinh bản nháp từ AI. Hãy kiểm tra nguồn trước khi duyệt.' : 'AI không sinh câu hỏi vì chưa đủ căn cứ hoặc ngoài phạm vi.');
+      } catch (error) {
+        currentResult = null;
+        setStatus('systemStatus', 'Không gọi được AI', 'bad');
+        $('emptyState').style.display = 'grid';
+        announce(error.message);
+      } finally {
+        $('generate').disabled = false;
+      }
+    });
+    $('approve').addEventListener('click', () => {
+      if (!currentResult || currentResult.status !== 'generated') { announce('Chỉ duyệt khi AI đã sinh một câu hỏi có căn cứ.'); return; }
+      saved += 1;
+      setStatus('draftStatus', 'Đã duyệt', 'good');
+      setStatus('systemStatus', 'Đã lưu', 'good');
+      setStep(4);
+      updateMetrics();
+      announce('Đã lưu câu hỏi vào ngân hàng quiz.');
+    });
+    $('reject').addEventListener('click', () => {
+      if (!currentResult) return;
+      setStatus('draftStatus', 'Đã loại', 'bad');
+      setStatus('systemStatus', 'Cần xem lại', 'bad');
+      announce('Đã loại bản nháp. Không có câu hỏi được lưu.');
+    });
+    $('edit').addEventListener('click', () => {
+      if (!currentResult || currentResult.status !== 'generated') { announce('Không có bản nháp để sửa.'); return; }
+      $('editBox').classList.add('visible');
+      $('editText').value = $('questionText').textContent;
+      $('editText').focus();
+    });
+    $('saveEdit').addEventListener('click', () => {
+      if ($('editText').value.trim()) {
+        $('questionText').textContent = $('editText').value.trim();
+        $('editBox').classList.remove('visible');
+        setStatus('draftStatus', 'Đã sửa, chờ duyệt');
+        announce('Đã cập nhật bản sửa. Kiểm tra lại nguồn rồi duyệt.');
+      }
+    });
+    $('regenerate').addEventListener('click', () => $('generate').click());
     updateMetrics();
   </script>
 </body>

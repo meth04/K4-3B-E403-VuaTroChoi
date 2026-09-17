@@ -67,37 +67,43 @@ Bộ 20 case phải phủ đủ **4 lớp chỗ khó** theo guide. Mỗi lớp c
 `eval/` phải ghi mã nguồn của từng case; không dán nguyên văn dài. Các case còn lại có thể
 là dữ liệu giả hoặc biến thể do nhóm tự viết, nhưng phải ghi rõ nguồn gốc.
 
+**Trạng thái fixture hiện tại:** `eval/golden-set.mjs` đã có đủ 20 case synthetic với mã
+`SYN-*` để chạy end-to-end mà không đưa data pack bảo mật vào repo. Các case này được gắn
+nhãn synthetic và **không được khai là chatlog/transcript thật**. Trước khi nộp CP3, thay
+ít nhất 10 case bằng case được phép lấy/phát triển từ data pack và chỉ giữ mã nguồn/trích
+ngắn theo quy định bảo mật.
+
 ### 3.1. Registry case phải chốt trước khi chạy
 
 Không dùng một dòng gộp `C01–C20` thay cho 20 dòng case. Mỗi dòng phải có input cụ thể,
-nguồn tham chiếu và hành vi kỳ vọng. Dùng mẫu sau trong `eval/golden-set.csv` hoặc bảng
+nguồn tham chiếu và hành vi kỳ vọng. Dùng mẫu sau trong `eval/golden-set.mjs` hoặc bảng
 tương đương:
 
 | Mã | Lớp | Loại | Nguồn gốc/mã nguồn | Input hoặc task | Hành vi kỳ vọng | Source ref kỳ vọng |
 |---|---|---|---|---|---|---|
-| C01 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C02 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C03 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C04 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C05 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C06 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C07 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C08 | ① | Thường | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh MCQ có căn cứ | ⟨Txx-NNN/trang⟩ |
-| C09 | ② | Mơ hồ | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Cảnh báo/hỏi lại | ⟨mã nguồn nếu có⟩ |
-| C10 | ② | Mơ hồ | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Cảnh báo/hỏi lại | ⟨mã nguồn nếu có⟩ |
-| C11 | ② | Mơ hồ | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Cảnh báo/hỏi lại | ⟨mã nguồn nếu có⟩ |
-| C12 | ② | Mơ hồ | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Cảnh báo/hỏi lại | ⟨mã nguồn nếu có⟩ |
-| C13 | ③ | Ngoài scope | ⟨mã chatlog/transcript hoặc giả⟩ | ⟨điền input⟩ | Từ chối/báo giới hạn | Không khẳng định |
-| C14 | ③ | Ngoài scope | ⟨mã chatlog/transcript hoặc giả⟩ | ⟨điền input⟩ | Từ chối/báo giới hạn | Không khẳng định |
-| C15 | ③ | Ngoài scope | ⟨mã chatlog/transcript hoặc giả⟩ | ⟨điền input⟩ | Từ chối/báo giới hạn | Không khẳng định |
-| C16 | ④ | Domain | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh đúng thuật ngữ | ⟨Txx-NNN/trang⟩ |
-| C17 | ④ | Nhiều nguồn | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Gắn đủ nhiều provenance | ⟨≥2 source ref⟩ |
-| C18 | ④ | Domain | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh đúng thuật ngữ | ⟨Txx-NNN/trang⟩ |
-| C19 | ④ | Nhiều nguồn | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Gắn đủ nhiều provenance | ⟨≥2 source ref⟩ |
-| C20 | ④ | Domain | ⟨mã chatlog/transcript⟩ | ⟨điền input⟩ | Sinh đúng thuật ngữ | ⟨Txx-NNN/trang⟩ |
+| C01 | ① | Thường | Synthetic: `SYN-GRAPH-01` | Quan hệ giữa hai thực thể | Sinh MCQ có căn cứ | `SYN-GRAPH-01` |
+| C02 | ① | Thường | Synthetic: `SYN-GRAPH-02` | Ý nghĩa hướng của edge | Sinh MCQ có căn cứ | `SYN-GRAPH-02` |
+| C03 | ① | Thường | Synthetic: `SYN-GRAPH-03` | Ý nghĩa provenance | Sinh MCQ có căn cứ | `SYN-GRAPH-03` |
+| C04 | ① | Thường | Synthetic: `SYN-PROV-01` | Provenance cụ thể đến mức nào | Sinh MCQ có căn cứ | `SYN-PROV-01` |
+| C05 | ① | Thường | Synthetic: `SYN-PROV-02` | Người duyệt dùng provenance làm gì | Sinh MCQ có căn cứ | `SYN-PROV-02` |
+| C06 | ① | Thường | Synthetic: `SYN-QUIZ-01` | Số đáp án đúng của MCQ tốt | Sinh MCQ có căn cứ | `SYN-QUIZ-01` |
+| C07 | ① | Thường | Synthetic: `SYN-QUIZ-02` | Yêu cầu với đáp án nhiễu | Sinh MCQ có căn cứ | `SYN-QUIZ-02` |
+| C08 | ① | Thường | Synthetic: `SYN-QUIZ-03` | Vai trò giải thích sau đáp án | Sinh MCQ có căn cứ | `SYN-QUIZ-03` |
+| C09 | ② | Mơ hồ | Synthetic: `SYN-GRAPH-*` | “Loại graph tốt nhất” | Cảnh báo/hỏi lại | Không đủ nguồn |
+| C10 | ② | Mơ hồ | Synthetic: `SYN-PROV-03` | “Confidence thấp luôn sai” | Cảnh báo/hỏi lại | `SYN-PROV-03` |
+| C11 | ② | Mơ hồ | Synthetic: `SYN-QUIZ-*` | MCQ có hai đáp án đúng | Cảnh báo/hỏi lại | Không đủ nguồn |
+| C12 | ② | Mơ hồ | Synthetic: `SYN-GRAPH-*` | Khái niệm không có trong nguồn | Cảnh báo/hỏi lại | Không đủ nguồn |
+| C13 | ③ | Ngoài scope | Synthetic | Người phát minh knowledge graph | Từ chối/báo giới hạn | Không khẳng định |
+| C14 | ③ | Ngoài scope | Synthetic | Chính sách bảo mật công ty | Từ chối/báo giới hạn | Không khẳng định |
+| C15 | ③ | Ngoài scope | Synthetic | Điểm thi cuối kỳ học viên | Từ chối/báo giới hạn | Không khẳng định |
+| C16 | ④ | Domain | Synthetic: `SYN-GRAPH-01` | Phân biệt node và edge | Sinh đúng thuật ngữ | `SYN-GRAPH-01` |
+| C17 | ④ | Nhiều nguồn | Synthetic: `SYN-GRAPH-01,03` | Edge và provenance | Gắn đủ nhiều provenance | `SYN-GRAPH-01`, `SYN-GRAPH-03` |
+| C18 | ④ | Domain | Synthetic: `SYN-PROV-04` | Xử lý hai nguồn mâu thuẫn | Sinh đúng thuật ngữ | `SYN-PROV-04` |
+| C19 | ④ | Nhiều nguồn | Synthetic: `SYN-QUIZ-01,02` | Đáp án đúng và đáp án nhiễu | Gắn đủ nhiều provenance | `SYN-QUIZ-01`, `SYN-QUIZ-02` |
+| C20 | ④ | Domain | Synthetic: `SYN-QUIZ-04` | Nguồn không đủ một đáp án duy nhất | Sinh đúng thuật ngữ | `SYN-QUIZ-04` |
 
-Các dấu `⟨...⟩` chỉ là trường bắt buộc phải điền trước khi chạy; không được giữ nguyên
-trong bảng nộp CP3.
+Chi tiết task machine-readable được giữ trong `eval/golden-set.mjs`; bảng này là bản tóm
+tắt để review CP3. Khi thay case synthetic bằng case data pack, cập nhật cả hai nơi.
 
 ### Một case đạt khi đồng thời thỏa 4 điều
 
@@ -138,12 +144,12 @@ Các số cần báo cáo trong CP3:
 ### 3.2. Quy trình chấm và log lượt chạy
 
 1. Chốt registry, tiêu chí và quality bar **trước lượt đo đầu**.
-2. Chạy trọn 20 case; lưu `eval/run-001-results.csv` với input, output, source ref,
+2. Chạy trọn 20 case; lưu `eval/run-001-results.json` với input, output, source ref,
    kết quả và lý do fail.
 3. Hai thành viên chấm độc lập ít nhất 5 case khó, ghi số case lệch và cách thống nhất.
    Nếu lệch từ 2/5 case trở lên, viết lại tiêu chí trước khi chấm tiếp.
 4. Sau mỗi thay đổi, chạy lại **toàn bộ 20 case** và lưu thành run mới; không ghi đè run cũ.
-5. Lưu `eval/ai-call-log.md` gồm `case_id`, thời điểm, model/provider, trạng thái,
+5. Lưu `eval/ai-call-log-run-001.json` gồm `case_id`, thời điểm, model/provider, trạng thái,
    source ref và mã lỗi nếu có. Tuyệt đối không lưu API key.
 
 ### 3.3. User Input Grid
@@ -214,8 +220,8 @@ và ít nhất một case khó được chuẩn bị cho demo CP5.
 | Artifact | Tối thiểu phải có |
 |---|---|
 | Video CP3 | MP4 dài không quá 30 giây, quay liên tục từ chọn phạm vi đến duyệt/lưu |
-| `eval/golden-set.csv` | 20 case cụ thể, nguồn gốc, input, lớp lỗi và hành vi kỳ vọng |
-| `eval/run-001-results.csv` | Output của đủ 20 case, kết quả Đạt/Không đạt và lý do |
-| `eval/ai-call-log.md` | Bằng chứng lời gọi AI thật, không có secret |
+| `eval/golden-set.mjs` | 20 case cụ thể, nguồn gốc, input, lớp lỗi và hành vi kỳ vọng |
+| `eval/run-001-results.json` | Output của đủ 20 case, kết quả Đạt/Không đạt và lý do |
+| `eval/ai-call-log-run-001.json` | Bằng chứng lời gọi AI thật, không có secret |
 | `eval/reviewer-agreement.md` | Kết quả hai người chấm độc lập các case khó |
 | `spec.md` | Quality bar được khóa tại CP4; phần mock/real và changelog được cập nhật |

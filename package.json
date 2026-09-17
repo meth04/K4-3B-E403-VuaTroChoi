@@ -1,0 +1,9 @@
+{
+  "name": "vuatrochoi-cp3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node codebase/server.mjs",
+    "eval": "node codebase/evaluate.mjs"
+  }
+}
