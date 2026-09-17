@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VuaTroChoi | Lesson Studio</title>
+  <style>
+    :root {
+      --ink: #172331;
+      --muted: #687687;
+      --line: #dce4ea;
+      --paper: #f7f9f7;
+      --panel: #ffffff;
+      --blue: #176b87;
+      --blue-soft: #e5f3f5;
+      --yellow: #f4c95d;
+      --yellow-soft: #fff4cf;
+      --green: #2c7a5a;
+      --green-soft: #e8f5ee;
+      --red: #a44848;
+      --red-soft: #fff0ef;
+      --shadow: 0 16px 40px rgba(23, 35, 49, .08);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Georgia, 'Times New Roman', serif; }
+    button, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .shell { min-height: 100vh; }
+    .topbar { height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.9); }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; letter-spacing: .01em; }
+    .crown { width: 34px; height: 34px; display: grid; place-items: center; color: #fff; background: var(--blue); border-radius: 10px; font-family: Arial, sans-serif; font-size: 19px; }
+    .topbar-note { color: var(--muted); font: 13px Arial, sans-serif; }
+    .workspace { display: grid; grid-template-columns: 255px minmax(0, 1fr); max-width: 1500px; margin: 0 auto; }
+    aside { min-height: calc(100vh - 72px); padding: 32px 20px; border-right: 1px solid var(--line); }
+    .eyebrow { color: var(--blue); font: 700 11px Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+    .side-title { margin: 8px 0 27px; font-size: 23px; line-height: 1.1; }
+    .steps { display: grid; gap: 10px; }
+    .step { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 8px; color: var(--muted); font: 14px Arial, sans-serif; }
+    .step.active { color: var(--ink); background: var(--yellow-soft); font-weight: 700; }
+    .step.done { color: var(--green); }
+    .step-number { width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-size: 11px; }
+    .side-foot { margin-top: 60px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font: 12px/1.6 Arial, sans-serif; }
+    main { padding: 42px clamp(24px, 5vw, 78px) 70px; }
+    .page-head { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    h1 { max-width: 700px; margin: 7px 0 0; font-size: clamp(32px, 4vw, 52px); line-height: 1.02; letter-spacing: -.03em; font-weight: 700; }
+    .counter { min-width: 160px; padding: 16px; align-self: end; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+    .counter-label { color: var(--muted); font: 11px Arial, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+    .counter-value { margin-top: 4px; font-size: 30px; }
+    .counter-detail { color: var(--green); font: 12px Arial, sans-serif; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); gap: 22px; align-items: start; }
+    .panel { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); box-shadow: var(--shadow); }
+    .panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 21px 24px; border-bottom: 1px solid var(--line); }
+    .panel-title { margin: 0; font-size: 21px; }
+    .panel-subtitle { margin: 6px 0 0; color: var(--muted); font: 13px/1.45 Arial, sans-serif; }
+    .panel-body { padding: 24px; }
+    label { display: block; margin-bottom: 8px; color: var(--muted); font: 700 12px Arial, sans-serif; letter-spacing: .03em; }
+    select { width: 100%; padding: 13px 14px; border: 1px solid #bac9d1; border-radius: 7px; color: var(--ink); background: #fff; outline: none; }
+    select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+    .scope-card { margin-top: 20px; padding: 16px; border-left: 4px solid var(--yellow); background: #fffaf0; }
+    .scope-card strong { display: block; margin-bottom: 6px; font-size: 16px; }
+    .scope-card p { margin: 0; color: #59616b; font: 13px/1.5 Arial, sans-serif; }
+    .source-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; color: var(--blue); font: 12px Arial, sans-serif; }
+    .source-chip, .status { display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; font: 700 11px Arial, sans-serif; }
+    .source-chip { background: var(--blue-soft); color: var(--blue); }
+    .status { background: var(--yellow-soft); color: #86620b; }
+    .status.good { color: var(--green); background: var(--green-soft); }
+    .status.bad { color: var(--red); background: var(--red-soft); }
+    .primary, .secondary, .danger { border: 0; border-radius: 7px; padding: 12px 16px; font: 700 13px Arial, sans-serif; transition: transform .15s ease, box-shadow .15s ease; }
+    .primary { color: #fff; background: var(--blue); box-shadow: 0 5px 12px rgba(23,107,135,.2); }
+    .secondary { color: var(--blue); background: var(--blue-soft); }
+    .danger { color: var(--red); background: var(--red-soft); }
+    button:hover { transform: translateY(-1px); }
+    button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .generate { width: 100%; margin-top: 20px; }
+    .question-card { min-height: 420px; }
+    .question-empty { display: grid; place-items: center; min-height: 330px; padding: 30px; text-align: center; color: var(--muted); }
+    .empty-mark { width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: 15px; border: 1px solid var(--line); border-radius: 50%; color: var(--blue); font-size: 25px; }
+    .question-content { display: none; }
+    .question-content.visible { display: block; animation: rise .35s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .question-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .question-label { color: var(--muted); font: 11px Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .question-text { margin: 0 0 18px; font-size: 23px; line-height: 1.3; }
+    .answers { display: grid; gap: 9px; }
+    .answer { display: flex; align-items: flex-start; gap: 10px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 7px; font: 14px/1.4 Arial, sans-serif; }
+    .answer.correct { border-color: #9bcbb1; background: var(--green-soft); }
+    .letter { color: var(--blue); font-weight: 700; }
+    .explanation { margin-top: 18px; padding: 13px 14px; border-radius: 7px; background: #f5f7f8; color: #4f5e6a; font: 13px/1.5 Arial, sans-serif; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .source-panel { margin-top: 22px; padding: 18px; border: 1px solid #c9e3e6; border-radius: 9px; background: #f3fbfb; }
+    .source-panel h3 { margin: 0 0 10px; font-size: 16px; }
+    .source-quote { margin: 0; color: #37525d; font: 13px/1.6 Arial, sans-serif; }
+    .source-ref { display: block; margin-top: 10px; color: var(--blue); font: 700 12px Arial, sans-serif; }
+    .edit-box { display: none; margin-top: 16px; }
+    .edit-box.visible { display: block; }
+    textarea { width: 100%; min-height: 86px; padding: 12px; resize: vertical; border: 1px solid #bac9d1; border-radius: 7px; outline: none; font: 14px/1.5 Arial, sans-serif; }
+    .metrics { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .metric { padding: 16px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+    .metric-value { font-size: 26px; }
+    .metric-label { margin-top: 4px; color: var(--muted); font: 11px Arial, sans-serif; }
+    .toast { position: fixed; right: 24px; bottom: 24px; max-width: 330px; padding: 14px 17px; border-radius: 8px; color: #fff; background: var(--ink); box-shadow: var(--shadow); font: 13px/1.4 Arial, sans-serif; opacity: 0; transform: translateY(8px); pointer-events: none; transition: all .25s ease; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) { .workspace { display: block; } aside { min-height: 0; padding: 20px 24px; border-right: 0; border-bottom: 1px solid var(--line); } .side-foot { display: none; } .steps { grid-template-columns: repeat(4, 1fr); } .step { justify-content: center; padding: 8px 5px; text-align: center; } .step span:last-child { display: none; } main { padding: 30px 24px 50px; } .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .topbar { padding: 0 20px; } .topbar-note { display: none; } .page-head { display: block; } .counter { margin-top: 20px; } .metrics { grid-template-columns: 1fr; } .panel-head, .panel-body { padding: 18px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="crown">V</span> VuaTroChoi</div>
+      <div class="topbar-note">Lesson Studio · CP3 prototype</div>
+    </header>
+    <div class="workspace">
+      <aside>
+        <div class="eyebrow">Tạo quiz có căn cứ</div>
+        <h2 class="side-title">Từ bài học<br>đến câu hỏi</h2>
+        <nav class="steps" aria-label="Các bước">
+          <div class="step active" id="step1"><span class="step-number">1</span><span>Chọn phạm vi</span></div>
+          <div class="step" id="step2"><span class="step-number">2</span><span>AI đề xuất</span></div>
+          <div class="step" id="step3"><span class="step-number">3</span><span>Giảng viên duyệt</span></div>
+          <div class="step" id="step4"><span class="step-number">4</span><span>Lưu câu hỏi</span></div>
+        </nav>
+        <div class="side-foot">AI chỉ đề xuất. Mọi câu hỏi được lưu đều cần người dạy kiểm tra nguồn và xác nhận.</div>
+      </aside>
+      <main>
+        <div class="page-head">
+          <div>
+            <div class="eyebrow">Knowledge-to-Lesson / CP3</div>
+            <h1>Sinh một câu hỏi.<br>Giữ lại căn cứ.</h1>
+          </div>
+          <div class="counter">
+            <div class="counter-label">Phiên thử hôm nay</div>
+            <div class="counter-value" id="attemptValue">0</div>
+            <div class="counter-detail" id="attemptDetail">Chưa có lượt đánh giá</div>
+          </div>
+        </div>
+        <div class="grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div><h2 class="panel-title">1. Chọn bài học</h2><p class="panel-subtitle">Giới hạn nguồn trước khi AI bắt đầu.</p></div>
+              <span class="status" id="systemStatus">Sẵn sàng</span>
+            </div>
+            <div class="panel-body">
+              <label for="lesson">Bài học</label>
+              <select id="lesson">
+                <option value="">Chọn một bài học</option>
+                <option value="graph">Graph tri thức cơ bản</option>
+                <option value="evidence">Provenance trong nội dung học tập</option>
+                <option value="quiz">Thiết kế câu hỏi trắc nghiệm</option>
+              </select>
+              <div class="scope-card" id="scopeCard" hidden>
+                <strong id="scopeTitle">Graph tri thức cơ bản</strong>
+                <p id="scopeDescription">Quan hệ giữa concept, thực thể và cạnh trong một graph.</p>
+                <div class="source-line"><span>Phạm vi đã khóa</span><span class="source-chip" id="scopeSource">6 đoạn transcript</span></div>
+              </div>
+              <button class="primary generate" id="generate" disabled>Sinh câu hỏi có nguồn</button>
+            </div>
+          </section>
+
+          <section class="panel question-card">
+            <div class="panel-head">
+              <div><h2 class="panel-title">2. Bản nháp câu hỏi</h2><p class="panel-subtitle">Kiểm tra nội dung trước khi lưu.</p></div>
+              <span class="status" id="draftStatus">Chưa có bản nháp</span>
+            </div>
+            <div class="panel-body">
+              <div class="question-empty" id="emptyState"><div><div class="empty-mark">?</div><strong>Câu hỏi sẽ xuất hiện ở đây</strong><p>Chọn một bài học để bắt đầu lượt thử.</p></div></div>
+              <div class="question-content" id="questionContent">
+                <div class="question-meta"><span class="question-label">Câu hỏi đề xuất</span><span class="source-chip" id="confidence">Provenance: 92%</span></div>
+                <p class="question-text" id="questionText"></p>
+                <div class="answers" id="answers"></div>
+                <div class="explanation"><strong>Giải thích:</strong> <span id="explanation"></span></div>
+                <div class="source-panel">
+                  <h3>Nguồn căn cứ</h3>
+                  <p class="source-quote" id="sourceQuote"></p>
+                  <span class="source-ref" id="sourceRef"></span>
+                </div>
+                <div class="edit-box" id="editBox">
+                  <label for="editText">Sửa nội dung câu hỏi</label>
+                  <textarea id="editText"></textarea>
+                  <button class="secondary" id="saveEdit">Lưu bản sửa</button>
+                </div>
+                <div class="actions">
+                  <button class="primary" id="approve">Duyệt và lưu</button>
+                  <button class="secondary" id="edit">Sửa câu hỏi</button>
+                  <button class="danger" id="reject">Loại</button>
+                  <button class="secondary" id="regenerate">Tạo lại</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="metric-value" id="savedValue">0</div><div class="metric-label">Câu hỏi đã duyệt</div></div>
+          <div class="metric"><div class="metric-value" id="sourceValue">0%</div><div class="metric-label">Có provenance đúng</div></div>
+          <div class="metric"><div class="metric-value">1/1</div><div class="metric-label">Case ngoài phạm vi bị chặn</div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const lessons = {
+      graph: {
+        title: 'Graph tri thức cơ bản', description: 'Quan hệ giữa concept, thực thể và cạnh trong một graph.', source: '6 đoạn transcript', confidence: '92%',
+        question: 'Trong graph tri thức, thành phần nào biểu diễn mối quan hệ giữa hai thực thể?', answers: ['Nút (node)', 'Cạnh (edge)', 'Bộ sưu tập tài liệu', 'Bộ sinh số ngẫu nhiên'], correct: 1,
+        explanation: 'Cạnh (edge) mô tả quan hệ có hướng hoặc không hướng giữa hai nút trong graph.', quote: '“Một graph được tạo bởi các nút đại diện cho thực thể và các cạnh biểu diễn quan hệ giữa chúng.”', ref: '[T03-014] · Transcript Graph tri thức · đoạn 14'
+      },
+      evidence: {
+        title: 'Provenance trong nội dung học tập', description: 'Cách truy ngược một nhận định về đúng đoạn tài liệu gốc.', source: '4 đoạn transcript', confidence: '96%',
+        question: 'Provenance giúp người duyệt kiểm tra điều gì trong một câu hỏi được sinh?', answers: ['Màu giao diện', 'Nguồn gốc của nhận định', 'Tốc độ mạng', 'Số lượng người dùng'], correct: 1,
+        explanation: 'Provenance liên kết nhận định với đoạn transcript hoặc trang slide cụ thể để người duyệt kiểm tra.', quote: '“Mỗi nhận định cần giữ lại dấu vết về đoạn nội dung đã tạo ra nhận định đó.”', ref: '[T05-022] · Transcript Provenance · đoạn 22'
+      },
+      quiz: {
+        title: 'Thiết kế câu hỏi trắc nghiệm', description: 'Các thành phần của một câu hỏi có một đáp án đúng.', source: '5 đoạn transcript', confidence: '89%',
+        question: 'Một câu hỏi trắc nghiệm tốt cần được kiểm tra điều gì trước khi xuất bản?', answers: ['Chỉ độ dài câu hỏi', 'Đáp án đúng và căn cứ nội dung', 'Tên người tạo', 'Màu của nút bấm'], correct: 1,
+        explanation: 'Cần kiểm tra đáp án đúng và căn cứ nội dung để tránh câu hỏi sai hoặc không thể xác minh.', quote: '“Trước khi xuất bản, người viết cần xác minh cả đáp án và căn cứ của câu hỏi.”', ref: '[T04-031] · Transcript Thiết kế quiz · đoạn 31'
+      }
+    };
+    const $ = (id) => document.getElementById(id);
+    let current = null;
+    let attempts = 0;
+    let saved = 0;
+    const lessonSelect = $('lesson');
+    const announce = (message) => { const toast = $('toast'); toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2600); };
+    const setStep = (active) => [1,2,3,4].forEach((step) => { const node = $('step' + step); node.classList.toggle('active', step === active); node.classList.toggle('done', step < active); });
+    const updateMetrics = () => { $('attemptValue').textContent = attempts; $('savedValue').textContent = saved; $('sourceValue').textContent = attempts ? '100%' : '0%'; $('attemptDetail').textContent = attempts ? attempts + ' lượt có nguồn kiểm tra được' : 'Chưa có lượt đánh giá'; };
+    lessonSelect.addEventListener('change', () => { current = lessons[lessonSelect.value]; $('scopeCard').hidden = !current; $('generate').disabled = !current; if (current) { $('scopeTitle').textContent = current.title; $('scopeDescription').textContent = current.description; $('scopeSource').textContent = current.source; setStep(1); } });
+    $('generate').addEventListener('click', () => {
+      if (!current) return;
+      $('systemStatus').textContent = 'Đang phân tích'; $('systemStatus').className = 'status'; $('generate').disabled = true; setStep(2);
+      setTimeout(() => {
+        $('emptyState').style.display = 'none'; $('questionContent').classList.add('visible'); $('draftStatus').textContent = 'Chờ duyệt'; $('draftStatus').className = 'status'; $('questionText').textContent = current.question; $('explanation').textContent = current.explanation; $('sourceQuote').textContent = current.quote; $('sourceRef').textContent = current.ref; $('confidence').textContent = 'Provenance: ' + current.confidence; $('answers').innerHTML = current.answers.map((answer, index) => '<div class="answer ' + (index === current.correct ? 'correct' : '') + '"><span class="letter">' + String.fromCharCode(65 + index) + '.</span><span>' + answer + '</span></div>').join(''); $('systemStatus').textContent = 'Đã phân tích'; $('systemStatus').className = 'status good'; setStep(3); $('generate').disabled = false; announce('Đã sinh bản nháp. Hãy kiểm tra nguồn trước khi duyệt.');
+      }, 650);
+    });
+    $('approve').addEventListener('click', () => { if (!current) return; attempts++; saved++; $('draftStatus').textContent = 'Đã duyệt'; $('draftStatus').className = 'status good'; $('systemStatus').textContent = 'Đã lưu'; $('systemStatus').className = 'status good'; setStep(4); updateMetrics(); announce('Đã lưu câu hỏi vào ngân hàng quiz.'); });
+    $('reject').addEventListener('click', () => { if (!current) return; attempts++; $('draftStatus').textContent = 'Đã loại'; $('draftStatus').className = 'status bad'; $('systemStatus').textContent = 'Cần xem lại'; $('systemStatus').className = 'status bad'; updateMetrics(); announce('Đã loại bản nháp. Không có câu hỏi được lưu.'); });
+    $('edit').addEventListener('click', () => { $('editBox').classList.add('visible'); $('editText').value = $('questionText').textContent; $('editText').focus(); });
+    $('saveEdit').addEventListener('click', () => { if ($('editText').value.trim()) { $('questionText').textContent = $('editText').value.trim(); $('editBox').classList.remove('visible'); $('draftStatus').textContent = 'Đã sửa, chờ duyệt'; announce('Đã cập nhật bản sửa. Kiểm tra lại nguồn rồi duyệt.'); } });
+    $('regenerate').addEventListener('click', () => { $('questionContent').classList.remove('visible'); setTimeout(() => $('generate').click(), 180); });
+    updateMetrics();
+  </script>
+</body>
+</html>
