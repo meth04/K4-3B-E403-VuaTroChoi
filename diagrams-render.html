@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Sơ đồ luồng VuaTroChoi</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: {
+      fontFamily: 'Segoe UI, sans-serif',
+      primaryColor: '#e8f1ff',
+      primaryTextColor: '#172033',
+      primaryBorderColor: '#3b6ea8',
+      lineColor: '#49627d',
+      secondaryColor: '#fff4d8',
+      tertiaryColor: '#e8f7ef'
+    }});
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f4f7fb; color: #172033; font-family: 'Segoe UI', sans-serif; }
+    .canvas { width: 1800px; padding: 54px 70px 70px; background: #fff; }
+    h1 { margin: 0 0 28px; font-size: 34px; font-weight: 700; color: #17324d; }
+    .mermaid { display: flex; justify-content: center; }
+    .flow { min-height: 1250px; }
+    .state { min-height: 900px; }
+  </style>
+</head>
+<body>
+  <section id="main-flow" class="canvas flow">
+    <h1>Luồng chính - Sinh quiz có căn cứ</h1>
+    <div class="mermaid">
+      flowchart TD
+        A[Giảng viên chọn bài học] --> B[Chọn phạm vi nội dung]
+        B --> C[Đọc transcript và slide]
+        C --> D[Phân đoạn nội dung<br/>gắn mã nguồn]
+        D --> E[Trích xuất concept và quan hệ]
+        E --> F{Có provenance<br/>đủ rõ không?}
+        F -- Không --> G[Đánh dấu thiếu căn cứ]
+        G --> H[Không sinh tự động<br/>Yêu cầu bổ sung phạm vi]
+        H --> B
+        F -- Có --> I[Sinh câu hỏi trắc nghiệm]
+        I --> J[Gắn nguồn cho câu hỏi,<br/>đáp án và giải thích]
+        J --> K[Kiểm tra chất lượng]
+        K --> L{Kết quả kiểm tra}
+        L -- Không đạt --> M[Hiển thị cảnh báo]
+        M --> N{Giảng viên xử lý}
+        N -- Sửa phạm vi --> B
+        N -- Tạo lại --> I
+        N -- Loại --> O[Bỏ đề xuất]
+        L -- Đạt --> P[Hiển thị bản nháp<br/>kèm trích dẫn nguồn]
+        P --> Q{Giảng viên duyệt?}
+        Q -- Duyệt --> R[Lưu vào ngân hàng câu hỏi]
+        Q -- Sửa --> S[Giảng viên chỉnh sửa]
+        S --> T[Kiểm tra lại nguồn và đáp án]
+        T --> Q
+        Q -- Loại --> O
+        R --> U[Sẵn sàng đưa vào quiz]
+    </div>
+  </section>
+
+  <section id="interface-states" class="canvas state">
+    <h1>Trạng thái trên giao diện</h1>
+    <div class="mermaid">
+      stateDiagram-v2
+        [*] --> ChuaChonBai
+        ChuaChonBai: Chưa chọn bài
+        DangPhanTich: Đang phân tích tài liệu
+        DangTaoCauHoi: Đang tạo câu hỏi
+        ThieuCanCu: Thiếu căn cứ
+        ChoDuyet: Chờ giảng viên duyệt
+        DangSua: Đang sửa
+        DaDuyet: Đã duyệt
+        DaLoai: Đã loại
+        ChuaChonBai --> DangPhanTich: Chọn bài học
+        DangPhanTich --> DangTaoCauHoi: Có nguồn hợp lệ
+        DangPhanTich --> ThieuCanCu: Không đủ provenance
+        ThieuCanCu --> ChuaChonBai: Đổi phạm vi
+        DangTaoCauHoi --> ChoDuyet: Sinh xong câu hỏi
+        ChoDuyet --> DaDuyet: Duyệt
+        ChoDuyet --> DangSua: Sửa
+        ChoDuyet --> DangTaoCauHoi: Tạo lại
+        ChoDuyet --> DaLoai: Loại
+        DangSua --> ChoDuyet: Lưu bản sửa
+        DaDuyet --> [*]
+        DaLoai --> [*]
+    </div>
+  </section>
+</body>
+</html>
