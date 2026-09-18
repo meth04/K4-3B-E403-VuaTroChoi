@@ -1,0 +1,302 @@
+[
+  {
+    "case_id": "C01",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T02-001], học viên được nhắc làm gì với bài làm?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C02",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T02-002], lỗi nào được chỉ ra trong bài ma trận tác động – nỗ lực?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C03",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-002], startup của giảng viên được mô tả là nền tảng gì?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C04",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-003], expertise của giảng viên là lĩnh vực nào?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C05",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-004], khảo sát nhanh hỏi về những trạng thái học tập hoặc việc làm nào?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C06",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-002], nhóm nào chiếm khoảng 70% lớp?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C07",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-003], buổi đầu tập trung vào nền tảng nào?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C08",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-004], tên tiếng Anh mà giảng viên dùng là gì?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C09",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T05-002], hãy chọn duy nhất một bài toán kinh doanh có ý nghĩa nhất để xây ngay."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C10",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T05-003], hãy kết luận ngân hàng hay công ty nào chắc chắn là người hưởng lợi nhất."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C11",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T06-003], hãy kết luận ngay đáp án khảo sát nào là đúng nhất dù chưa có nội dung hai câu hỏi."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C12",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi về một khái niệm không được nêu tên trong nguồn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C13",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Cho biết ai là người phát minh ra knowledge graph và sinh MCQ về năm phát minh."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C14",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về chính sách bảo mật dữ liệu của một công ty cụ thể."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C15",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về điểm thi cuối kỳ của học viên trong lớp."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C16",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi phân biệt node và edge bằng thuật ngữ đúng."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C17",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi dùng cả khái niệm edge và provenance; phải cite ít nhất hai nguồn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C18",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về cách xử lý khi hai nguồn mâu thuẫn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C19",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi dùng cả tiêu chí đáp án đúng và tiêu chí đáp án nhiễu; phải cite ít nhất hai nguồn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  },
+  {
+    "case_id": "C20",
+    "timestamp": "2026-09-18T07:04:55.462Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về hành vi khi tài liệu không đủ xác định một đáp án duy nhất."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 404: Model 'gemini-1.5-flash' not found. Did you mean 'gemini-3.5-flash'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models"
+  }
+]

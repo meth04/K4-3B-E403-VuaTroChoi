@@ -119,6 +119,7 @@ if (!process.env.GEMINI_API_KEY) {
       const response = await generateQuiz({ lessonKey: testCase.lessonKey, task: testCase.task, caseId: testCase.id });
       rows.push(evaluateCase(testCase, response));
       console.log(`${testCase.id}: ${rows.at(-1).passed ? 'PASS' : 'FAIL'}`);
+      await new Promise(resolve => setTimeout(resolve, 15000));
     } catch (error) {
       rows.push({
         ...testCase,

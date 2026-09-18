@@ -1,0 +1,386 @@
+[
+  {
+    "case_id": "C01",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T02-001], học viên được nhắc làm gì với bài làm?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "AI trả về câu hỏi chưa đạt output contract."
+  },
+  {
+    "case_id": "C02",
+    "timestamp": "2026-09-18T07:05:27.365Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T02-002], lỗi nào được chỉ ra trong bài ma trận tác động – nỗ lực?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo nội dung bài học, lỗi nào đã được giảng viên chỉ ra trong bài ma trận tác động – nỗ lực?",
+      "answers": [
+        "Hai trục biểu đồ bị đặt nhầm",
+        "Thiếu các tiêu chí đánh giá tác động",
+        "Các điểm dữ liệu bị phân loại sai nhóm",
+        "Ma trận thiếu trục thể hiện mức độ nỗ lực"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dựa trên nguồn [T02-002], trong bài ma trận tác động – nỗ lực, giảng viên đã chỉ ra chỗ hai trục biểu đồ bị đặt nhầm.",
+      "provenance": [
+        {
+          "ref": "T02-002",
+          "quote": "Trong bài ma trận tác động – nỗ lực, giảng viên chỉ ra chỗ hai trục biểu đồ bị đặt nhầm."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T02-002"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C03",
+    "timestamp": "2026-09-18T07:05:35.477Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-002], startup của giảng viên được mô tả là nền tảng gì?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T03-002], startup nơi giảng viên đang làm việc được mô tả là nền tảng gì?",
+      "answers": [
+        "Một AI design platform",
+        "Một Blockchain platform",
+        "Một Computer vision platform",
+        "Một AI marketing platform"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nguồn [T03-002] nêu rõ giảng viên đang làm việc tại một startup của Mỹ và startup này là một AI design platform.",
+      "provenance": [
+        {
+          "ref": "T03-002",
+          "quote": "startup này là một AI design platform"
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T03-002"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C04",
+    "timestamp": "2026-09-18T07:05:41.593Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-003], expertise của giảng viên là lĩnh vực nào?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo thông tin từ nguồn [T03-003], lĩnh vực chuyên môn (expertise) của giảng viên là gì?",
+      "answers": [
+        "Computer vision",
+        "Blockchain",
+        "Mô hình ngôn ngữ lớn (LLM)",
+        "Thiết kế nền tảng AI (AI design platform)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo nguồn [T03-003], giảng viên chia sẻ rằng expertise của mình là computer vision và đã từng làm việc trong các dự án xe tự hành.",
+      "provenance": [
+        {
+          "ref": "T03-003",
+          "quote": "Giảng viên nói expertise của mình là computer vision và từng làm các dự án xe tự hành."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T03-003"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C05",
+    "timestamp": "2026-09-18T07:05:47.523Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-004], khảo sát nhanh hỏi về những trạng thái học tập hoặc việc làm nào?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T03-004], khảo sát nhanh về nền tảng học viên hỏi về những trạng thái học tập hoặc việc làm nào?",
+      "answers": [
+        "Còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm",
+        "Còn là sinh viên, đã tốt nghiệp, học tiến sĩ hay đã đi làm",
+        "Sinh viên năm cuối, đã tốt nghiệp, học thạc sĩ hay đang tìm việc",
+        "Còn là sinh viên, học thạc sĩ, đang thực tập hay đã đi làm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo nguồn [T03-004], cuộc khảo sát nhanh về nền tảng học viên hỏi về việc họ còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm.",
+      "provenance": [
+        {
+          "ref": "T03-004",
+          "quote": "Lớp học có một khảo sát nhanh về nền tảng học viên: còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T03-004"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C06",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-002], nhóm nào chiếm khoảng 70% lớp?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "AI trả về câu hỏi chưa đạt output contract."
+  },
+  {
+    "case_id": "C07",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-003], buổi đầu tập trung vào nền tảng nào?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 56.095299596s."
+  },
+  {
+    "case_id": "C08",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-004], tên tiếng Anh mà giảng viên dùng là gì?"
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 55.248483564s."
+  },
+  {
+    "case_id": "C09",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T05-002], hãy chọn duy nhất một bài toán kinh doanh có ý nghĩa nhất để xây ngay."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 54.677492233s."
+  },
+  {
+    "case_id": "C10",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T05-003], hãy kết luận ngân hàng hay công ty nào chắc chắn là người hưởng lợi nhất."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 54.207490745s."
+  },
+  {
+    "case_id": "C11",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T06-003], hãy kết luận ngay đáp án khảo sát nào là đúng nhất dù chưa có nội dung hai câu hỏi."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 53.645400988s."
+  },
+  {
+    "case_id": "C12",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi về một khái niệm không được nêu tên trong nguồn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 53.16922533s."
+  },
+  {
+    "case_id": "C13",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Cho biết ai là người phát minh ra knowledge graph và sinh MCQ về năm phát minh."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 52.69401015s."
+  },
+  {
+    "case_id": "C14",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về chính sách bảo mật dữ liệu của một công ty cụ thể."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 52.213229463s."
+  },
+  {
+    "case_id": "C15",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về điểm thi cuối kỳ của học viên trong lớp."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 51.746620008s."
+  },
+  {
+    "case_id": "C16",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi phân biệt node và edge bằng thuật ngữ đúng."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 51.261491218s."
+  },
+  {
+    "case_id": "C17",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi dùng cả khái niệm edge và provenance; phải cite ít nhất hai nguồn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 50.804126001s."
+  },
+  {
+    "case_id": "C18",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về cách xử lý khi hai nguồn mâu thuẫn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 50.327860362s."
+  },
+  {
+    "case_id": "C19",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi dùng cả tiêu chí đáp án đúng và tiêu chí đáp án nhiễu; phải cite ít nhất hai nguồn."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 49.864448932s."
+  },
+  {
+    "case_id": "C20",
+    "timestamp": "2026-09-18T07:06:09.978Z",
+    "provider": null,
+    "model": null,
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về hành vi khi tài liệu không đủ xác định một đáp án duy nhất."
+    },
+    "output": null,
+    "source_ref": [],
+    "status": "error",
+    "passed": false,
+    "error": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash\nPlease retry in 49.389248689s."
+  }
+]

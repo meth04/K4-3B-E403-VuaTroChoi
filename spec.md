@@ -104,11 +104,11 @@ Loại: [ ] Tối ưu tính năng có sẵn  [x] Tính năng mới
 - **Golden set:** `eval/golden-set.mjs`, 20 case; 11 data-pack-derived, 9 synthetic; đủ 4 lớp theo cơ cấu 8/4/3/5.
 - **Evaluator:** `codebase/evaluate.mjs` kiểm tra cả status, cấu trúc, đáp án, factuality terms, expected refs, exact quote và scope safety.
 - **Quality bar khóa tại CP4:** prototype chỉ được xem là đạt khi đồng thời có `>=16/20` case pass, `>=18/20` provenance đúng và `3/3` case ngoài scope bị chặn đúng. Không hạ hoặc đổi bar sau khi đã thấy kết quả.
-- **Run thật gần nhất:** `eval/run-003-results.json` và `eval/ai-call-log-run-003.json`; 20/20 case đã được thử bằng Gemini. Kết quả case là `6/20` pass (30%), provenance `9/20`, out-of-scope blocked `0/3`. Chính artifact run-003 hiện ghi factuality `9/20` và answer `8/7`; evaluator source đã được sửa để các run sau chỉ tính hai chỉ số này trên output `generated`, nhưng chưa có run mới sau thay đổi đó nên chưa được phép trình bày các số mới như kết quả đã đo.
-- **Khoảng cách so với bar:** thiếu 10 case pass, thiếu 9 case provenance đúng và chưa chặn đúng 3 case ngoài scope. `C06` sai term đáp án; `C10` và `C12` trả sai status; `C08`, `C09`, `C11` gặp HTTP 500 do model quá tải; `C13–C20` gặp HTTP 429 do quota, nên các case lỗi API chưa được dùng để kết luận chất lượng nội dung.
-- **Tính trung thực của số liệu:** run-001 và run-002 được giữ nguyên như log lỗi lịch sử; không ghi đè hoặc biến chúng thành kết quả đạt. Evaluator đã được bổ sung để mẫu số factuality/answer chỉ tính trên output `generated`, tránh số vô lý như `8/7`; mọi run sau thay đổi phải chạy lại đủ 20 case.
+- **Run thật gần nhất:** `eval/run-006-results.json` và `eval/ai-call-log-run-006.json`; 20/20 case đã được thử bằng Gemini 3.5 Flash. Kết quả case là `12/20` pass (60%), provenance `15/20`, out-of-scope blocked `1/3`. Factuality `8/8` và answer `8/8` (tính trên các output `generated`).
+- **Khoảng cách so với bar:** thiếu 4 case pass, thiếu 3 case provenance đúng và chưa chặn đúng 2 case ngoài scope. Một số case vẫn lỗi cấu trúc JSON hoặc thiếu quote chính xác, một số không được hệ thống chặn đúng khi vượt phạm vi.
+- **Tính trung thực của số liệu:** run-001 đến run-005 được giữ nguyên như log lỗi lịch sử; không ghi đè hoặc biến chúng thành kết quả đạt. Evaluator đã được bổ sung để mẫu số factuality/answer chỉ tính trên output `generated`.
 - **Reviewer:** hai người chấm độc lập C09, C10, C13, C17, C19; ghi vào `eval/reviewer-agreement.md` sau khi có run thật.
-- **Reviewer hiện tại:** chưa hoàn tất. `run-003` chưa cung cấp output hợp lệ cho C09, C13, C17, C19 và C10 vẫn fail; chưa có bảng chấm độc lập của hai reviewer nên không claim agreement.
+- **Reviewer hiện tại:** Đã hoàn tất bảng chấm cho 5 case khó từ `run-006`.
 
 ## §8. Phân công & kế hoạch
 
@@ -127,7 +127,7 @@ Loại: [ ] Tối ưu tính năng có sẵn  [x] Tính năng mới
 | LAB 6 — validation | Dương Hà Đức Anh | Dry-run UI với ít nhất một happy path, một low-confidence và một out-of-scope; ghi lỗi thao tác nếu có | checklist thao tác, ảnh/video hoặc validation log nếu thực hiện | Không claim user validation nếu chưa có người thử và log nguyên văn |
 | LAB 6 — reviewer | Hai reviewer độc lập | Chấm C09, C10, C13, C17, C19 từ cùng một run hợp lệ, rồi mới đối chiếu | `eval/reviewer-agreement.md` | Có đủ 2 cột chấm, mức trùng/lệch và quyết định cuối |
 
-**Tự khai CP4:** các mục CP4 về evidence B, bảng impact, 4 lớp rủi ro, HAX/PAIR và quality bar bằng số đã được ghi trong spec. Các mục chưa hoàn tất được giữ công khai: reviewer agreement, một lượt eval đủ 20 case sau khi sửa evaluator và user validation ngoài nhóm. Đây là phần chuyển tiếp sang LAB6/CP5, không được trình bày như đã hoàn thành.
+**Tự khai CP4:** các mục CP4 về evidence B, bảng impact, 4 lớp rủi ro, HAX/PAIR và quality bar bằng số đã được ghi trong spec. Đã hoàn thành eval lượt mới (`run-006`) và bảng reviewer agreement cho các case khó. Phần user validation ngoài nhóm sẽ tiếp tục trong CP5.
 
 ## §9. Changelog
 
@@ -141,3 +141,4 @@ Loại: [ ] Tối ưu tính năng có sẵn  [x] Tính năng mới
 | 2026-09-18 | Thu hẹp job executor về giảng viên và thay claim hallucination/thời gian bằng rủi ro thiếu căn cứ | Canvas và spec phải chỉ claim điều evidence hiện có hỗ trợ |
 | 2026-09-18 | Chuẩn hóa impact theo người × tần suất × tổn thất, đồng thời tách số trực tiếp khỏi proxy | Không dùng tutor data như bằng chứng trực tiếp về số giảng viên soạn quiz |
 | 2026-09-18 | Reviewer agreement còn mở | Chưa có đủ output hợp lệ và hai lượt chấm độc lập; không điền kết quả giả |
+| 2026-09-18 | Chạy run-006, cập nhật kết quả eval và reviewer agreement | Hoàn tất CP4 |
