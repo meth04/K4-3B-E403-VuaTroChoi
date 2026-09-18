@@ -85,61 +85,91 @@ function validateResult(candidate, lesson) {
 
 function buildPrompt(lesson, task) {
   const sources = lesson.passages.map((passage) => `- [${passage.ref}] ${passage.text}`).join('\n');
-  return `Bạn là bộ sinh câu hỏi trắc nghiệm cho giảng viên. Chỉ dùng các nguồn được cấp bên dưới.\n\nNhiệm vụ: ${task || 'Sinh một câu hỏi trắc nghiệm kiểm tra một ý quan trọng trong phạm vi bài học.'}\n\nNguồn được phép:\n${sources}\n\nQuy tắc bắt buộc:\n1. Không dùng kiến thức bên ngoài nguồn.\n2. Nếu nguồn không đủ, input mơ hồ, mâu thuẫn hoặc yêu cầu ngoài phạm vi, không sinh câu hỏi; trả về needs_clarification hoặc out_of_scope.\n3. Nếu sinh câu hỏi, có đúng 4 đáp án, đúng 1 đáp án đúng, giải thích ngắn và provenance chỉ dùng mã nguồn được cấp.\n4. Trả về duy nhất JSON hợp lệ, không markdown, đúng schema:\n{\"status\":\"generated|needs_clarification|out_of_scope\",\"question\":\"...\",\"answers\":[\"...\",\"...\",\"...\",\"...\"],\"correctIndex\":0,\"explanation\":\"...\",\"provenance\":[{\"ref\":\"SYN-...\",\"quote\":\"trích ngắn từ nguồn\"}],\"confidence\":\"high|low\",\"reason\":\"...\"}`;
+  return `Bạn là bộ sinh câu hỏi trắc nghiệm cho giảng viên. Chỉ dùng các nguồn được cấp bên dưới.
+
+Nhiệm vụ: ${task || 'Sinh một câu hỏi trắc nghiệm kiểm tra một ý quan trọng trong phạm vi bài học.'}
+
+Nguồn được phép:
+${sources}
+
+Quy tắc bắt buộc:
+1. KHÔNG dùng kiến thức bên ngoài nguồn.
+2. Xác định chính xác trạng thái (status):
+   - "out_of_scope": Nếu yêu cầu tìm thông tin HOÀN TOÀN KHÔNG CÓ trong tài liệu (ví dụ: người phát minh, chính sách công ty, điểm số).
+   - "needs_clarification": Nếu yêu cầu hỏi về chủ đề có nhắc đến nhưng tài liệu lại KHÔNG ĐỦ dữ kiện hoặc quá mơ hồ để kết luận 1 đáp án đúng nhất.
+   - "generated": Nếu sinh câu hỏi thành công.
+3. Trong provenance, trường "quote" phải được TRÍCH XUẤT CHÍNH XÁC 100% từng chữ (copy-paste) từ văn bản nguồn, không được viết lại, không thêm bớt dấu câu.
+4. Nếu sinh MCQ, phải có đúng 4 đáp án (answers), 1 đáp án đúng (correctIndex).
+5. Trả về DUY NHẤT một chuỗi JSON hợp lệ, không bọc markdown, theo đúng schema sau:
+{"status":"generated|needs_clarification|out_of_scope","question":"...","answers":["...","...","...","..."],"correctIndex":0,"explanation":"...","provenance":[{"ref":"mã nguồn","quote":"chuỗi nguyên văn chính xác"}],"confidence":"high|low","reason":"..."}`;
 }
 
+const OPENAI_ENDPOINT = process.env.API_BASE_URL || 'http://localhost:20128/v1/chat/completions';
+
 export async function generateQuiz({ lessonKey, task, caseId = 'interactive' }) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw appError('Thiếu GEMINI_API_KEY. Hãy đặt key trong biến môi trường trước khi chạy.', 'MISSING_API_KEY', 503);
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) throw appError('Thiếu API_KEY. Hãy đặt key trong biến môi trường trước khi chạy.', 'MISSING_API_KEY', 503);
 
   const lesson = getLesson(lessonKey);
   if (!lesson) throw appError('Bài học không hợp lệ.', 'UNKNOWN_LESSON', 400);
 
   const startedAt = new Date().toISOString();
   const started = performance.now();
-  const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const model = process.env.API_MODEL || 'oc/deepseek-v4-flash-free';
   const prompt = buildPrompt(lesson, task);
   let response;
   try {
-    response = await fetch(GEMINI_ENDPOINT, {
+    response = await fetch(OPENAI_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-      // Interactions API requires an array of user-input steps when store=false.
-      // Keeping the request stateless prevents one eval case from affecting another.
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${apiKey}` 
+      },
       body: JSON.stringify({
         model,
-        store: false,
-        input: [{ type: 'user_input', content: prompt }]
+        messages: [{ role: 'user', content: prompt }]
       })
     });
-  } catch {
-    throw appError('Không kết nối được Gemini API.', 'NETWORK_ERROR', 502);
+  } catch (err) {
+    throw appError('Không kết nối được API: ' + err.message, 'NETWORK_ERROR', 502);
   }
 
   const rawPayload = await response.text();
-  let payload = {};
-  try {
-    payload = rawPayload ? JSON.parse(rawPayload) : {};
-  } catch {
-    payload = {};
-  }
-  if (!response.ok && rawPayload.trim()) {
-    const detail = payload?.error?.message || payload?.message || rawPayload.trim().slice(0, 500);
-    throw appError(`Gemini API HTTP ${response.status}: ${detail}`, 'GEMINI_API_ERROR', response.status);
-  }
+  let outputText = '';
+
   if (!response.ok) {
-    const message = payload?.error?.message || `Gemini API trả về HTTP ${response.status}.`;
-    throw appError(message, 'GEMINI_API_ERROR', response.status);
+    let payload = {};
+    try { payload = JSON.parse(rawPayload); } catch {}
+    const message = payload?.error?.message || payload?.message || rawPayload.trim().slice(0, 500) || `API trả về HTTP ${response.status}.`;
+    throw appError(message, 'API_ERROR', response.status);
   }
 
-  const result = validateResult(parseJson(readOutputText(payload)), lesson);
+  if (rawPayload.includes('data: ')) {
+    const lines = rawPayload.split('\n');
+    for (const line of lines) {
+      if (line.trim().startsWith('data: ') && !line.includes('[DONE]')) {
+        try {
+          const chunk = JSON.parse(line.trim().slice(6));
+          if (chunk.choices?.[0]?.delta?.content) {
+            outputText += chunk.choices[0].delta.content;
+          }
+        } catch {}
+      }
+    }
+  } else {
+    try {
+      const payload = JSON.parse(rawPayload);
+      outputText = payload.choices?.[0]?.message?.content || '';
+    } catch {}
+  }
+  const result = validateResult(parseJson(outputText), lesson);
   return {
     result,
     trace: {
       caseId,
-      provider: 'Gemini Interactions API',
-      model: payload.model || model,
-      interactionId: payload.id || null,
+      provider: 'Local API',
+      model,
+      interactionId: null,
       startedAt,
       durationMs: Math.round(performance.now() - started),
       sourceRefs: result.provenance.map((item) => item.ref),

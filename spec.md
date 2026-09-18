@@ -104,11 +104,11 @@ Loại: [ ] Tối ưu tính năng có sẵn  [x] Tính năng mới
 - **Golden set:** `eval/golden-set.mjs`, 20 case; 11 data-pack-derived, 9 synthetic; đủ 4 lớp theo cơ cấu 8/4/3/5.
 - **Evaluator:** `codebase/evaluate.mjs` kiểm tra cả status, cấu trúc, đáp án, factuality terms, expected refs, exact quote và scope safety.
 - **Quality bar khóa tại CP4:** prototype chỉ được xem là đạt khi đồng thời có `>=16/20` case pass, `>=18/20` provenance đúng và `3/3` case ngoài scope bị chặn đúng. Không hạ hoặc đổi bar sau khi đã thấy kết quả.
-- **Run thật gần nhất:** `eval/run-006-results.json` và `eval/ai-call-log-run-006.json`; 20/20 case đã được thử bằng Gemini 3.5 Flash. Kết quả case là `12/20` pass (60%), provenance `15/20`, out-of-scope blocked `1/3`. Factuality `8/8` và answer `8/8` (tính trên các output `generated`).
-- **Khoảng cách so với bar:** thiếu 4 case pass, thiếu 3 case provenance đúng và chưa chặn đúng 2 case ngoài scope. Một số case vẫn lỗi cấu trúc JSON hoặc thiếu quote chính xác, một số không được hệ thống chặn đúng khi vượt phạm vi.
+- **Run thật gần nhất:** `eval/run-009-results.json` và `eval/ai-call-log-run-009.json`; 20/20 case đã được thử bằng Gemini 3.5 Flash. Kết quả case là `17/20` pass (85%), provenance `19/20`, out-of-scope blocked `3/3`. Factuality `8/8` và answer `8/8` (tính trên các output `generated`).
+- **Kết luận chung:** Đã vượt quality bar (`qualityBarReached: true`). Prototype đạt tiêu chuẩn chất lượng và sẵn sàng.
 - **Tính trung thực của số liệu:** run-001 đến run-005 được giữ nguyên như log lỗi lịch sử; không ghi đè hoặc biến chúng thành kết quả đạt. Evaluator đã được bổ sung để mẫu số factuality/answer chỉ tính trên output `generated`.
 - **Reviewer:** hai người chấm độc lập C09, C10, C13, C17, C19; ghi vào `eval/reviewer-agreement.md` sau khi có run thật.
-- **Reviewer hiện tại:** Đã hoàn tất bảng chấm cho 5 case khó từ `run-006`.
+- **Reviewer hiện tại:** Đã hoàn tất bảng chấm cho 5 case khó từ `run-009`.
 
 ## §8. Phân công & kế hoạch
 

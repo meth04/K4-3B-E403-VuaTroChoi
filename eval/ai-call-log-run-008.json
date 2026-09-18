@@ -1,0 +1,650 @@
+[
+  {
+    "case_id": "C01",
+    "timestamp": "2026-09-18T07:57:30.862Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T02-001], học viên được nhắc làm gì với bài làm?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T02-001], học viên được giảng viên nhắc làm gì với bài làm của mình?",
+      "answers": [
+        "Chia sẻ bài làm lên Discord và trao đổi với các học viên khác",
+        "Nộp bài làm trực tiếp qua email cho giảng viên",
+        "Đăng bài làm lên nhóm Facebook của lớp học",
+        "Lưu bài làm vào máy cá nhân và chuẩn bị thuyết trình"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo nguồn [T02-001], giảng viên nhắc học viên chia sẻ bài làm lên Discord và trao đổi với các học viên khác.",
+      "provenance": [
+        {
+          "ref": "T02-001",
+          "quote": "Giảng viên nhắc học viên chia sẻ bài làm lên Discord và trao đổi với các học viên khác."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T02-001"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C02",
+    "timestamp": "2026-09-18T07:57:47.788Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T02-002], lỗi nào được chỉ ra trong bài ma trận tác động – nỗ lực?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Trong bài ma trận tác động – nỗ lực, giảng viên đã chỉ ra lỗi gì?",
+      "answers": [
+        "Hai trục biểu đồ bị đặt nhầm.",
+        "Số liệu thống kê bị sai lệch.",
+        "Thiếu phần chú thích cho biểu đồ.",
+        "Các nhãn tên bị viết sai chính tả."
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo nguồn [T02-002], trong bài ma trận tác động – nỗ lực, giảng viên chỉ ra chỗ hai trục biểu đồ bị đặt nhầm.",
+      "provenance": [
+        {
+          "ref": "T02-002",
+          "quote": "Trong bài ma trận tác động – nỗ lực, giảng viên chỉ ra chỗ hai trục biểu đồ bị đặt nhầm."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T02-002"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C03",
+    "timestamp": "2026-09-18T07:58:04.580Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-002], startup của giảng viên được mô tả là nền tảng gì?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T03-002], startup của giảng viên được mô tả là nền tảng gì?",
+      "answers": [
+        "Một nền tảng thiết kế AI (AI design platform)",
+        "Một nền tảng xe tự hành (autonomous vehicle platform)",
+        "Một nền tảng mạng xã hội blockchain",
+        "Một nền tảng học tập trực tuyến cho sinh viên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dựa trên nguồn [T03-002], giảng viên cho biết đang làm việc tại một startup của Mỹ và startup này là một AI design platform.",
+      "provenance": [
+        {
+          "ref": "T03-002",
+          "quote": "Giảng viên nói mình đang là AI Research Engineer tại một startup của Mỹ; startup này là một AI design platform."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T03-002"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C04",
+    "timestamp": "2026-09-18T07:58:21.686Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-003], expertise của giảng viên là lĩnh vực nào?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo giảng viên, expertise của họ là trong lĩnh vực nào?",
+      "answers": [
+        "Computer vision và từng làm các dự án xe tự hành",
+        "Blockchain và thiết kế nền tảng AI",
+        "LLM và các mô hình ngôn ngữ lớn",
+        "AI Research Engineer tại một startup của Mỹ"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo nguồn [T03-003], giảng viên nói expertise của mình là computer vision và từng làm các dự án xe tự hành.",
+      "provenance": [
+        {
+          "ref": "T03-003",
+          "quote": "Giảng viên nói expertise của mình là computer vision và từng làm các dự án xe tự hành."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T03-003"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C05",
+    "timestamp": "2026-09-18T07:58:38.470Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T03-004], khảo sát nhanh hỏi về những trạng thái học tập hoặc việc làm nào?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T03-004], khảo sát nhanh của lớp học hỏi về những trạng thái học tập hoặc việc làm nào của học viên?",
+      "answers": [
+        "Còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm",
+        "Đang là sinh viên năm nhất, sinh viên năm cuối, hoặc đã đi làm",
+        "Đang học đại học, học cao học, đã đi làm hoặc thất nghiệp",
+        "Chưa tốt nghiệp, đã tốt nghiệp, đang làm nghiên cứu sinh hay làm việc tự do"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo nguồn [T03-004], khảo sát nhanh về nền tảng học viên hỏi các trạng thái: còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm.",
+      "provenance": [
+        {
+          "ref": "T03-004",
+          "quote": "Lớp học có một khảo sát nhanh về nền tảng học viên: còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T03-004"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C06",
+    "timestamp": "2026-09-18T07:58:55.548Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-002], nhóm nào chiếm khoảng 70% lớp?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T04-002], nhóm nào chiếm khoảng 70% lớp?",
+      "answers": [
+        "Người đã đi làm",
+        "Học thạc sĩ",
+        "Sinh viên năm cuối",
+        "Đã tốt nghiệp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dựa vào tài liệu [T04-002], lớp có khoảng 70% là sinh viên năm cuối và khoảng 30% là người đã đi làm.",
+      "provenance": [
+        {
+          "ref": "T04-002",
+          "quote": "Lớp có khoảng 70% là sinh viên năm cuối và khoảng 30% là người đã đi làm."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T04-002"
+    ],
+    "status": "generated",
+    "passed": false,
+    "error": null
+  },
+  {
+    "case_id": "C07",
+    "timestamp": "2026-09-18T07:59:12.254Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-003], buổi đầu tập trung vào nền tảng nào?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo [T04-003], buổi đầu tập trung vào nền tảng nào?",
+      "answers": [
+        "Nền tảng của AI và các mô hình ngôn ngữ lớn (LLM)",
+        "Nền tảng computer vision và xe tự hành",
+        "Nền tảng blockchain và AI design platform",
+        "Nền tảng bài toán kinh doanh cho AI"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo tài liệu [T04-003], buổi đầu học về nền tảng của AI và các mô hình ngôn ngữ lớn, tức LLM.",
+      "provenance": [
+        {
+          "ref": "T04-003",
+          "quote": "Buổi đầu học về nền tảng của AI và các mô hình ngôn ngữ lớn, tức LLM."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T04-003"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C08",
+    "timestamp": "2026-09-18T07:59:29.348Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T04-004], tên tiếng Anh mà giảng viên dùng là gì?"
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo tài liệu, tên tiếng Anh mà giảng viên dùng là gì?",
+      "answers": [
+        "Blue",
+        "Alex",
+        "David",
+        "John"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dựa vào nguồn [T04-004], giảng viên kể từng làm trong blockchain nên có tên tiếng Anh là Blue.",
+      "provenance": [
+        {
+          "ref": "T04-004",
+          "quote": "Giảng viên kể từng làm trong blockchain nên có tên tiếng Anh là Blue."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "T04-004"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C09",
+    "timestamp": "2026-09-18T07:59:46.094Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T05-002], hãy chọn duy nhất một bài toán kinh doanh có ý nghĩa nhất để xây ngay."
+    },
+    "output": {
+      "status": "out_of_scope",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [],
+      "confidence": "low",
+      "reason": "Yêu cầu nằm ngoài phạm vi các nguồn dữ liệu được cung cấp."
+    },
+    "source_ref": [],
+    "status": "out_of_scope",
+    "passed": false,
+    "error": null
+  },
+  {
+    "case_id": "C10",
+    "timestamp": "2026-09-18T08:00:02.969Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T05-003], hãy kết luận ngân hàng hay công ty nào chắc chắn là người hưởng lợi nhất."
+    },
+    "output": {
+      "status": "needs_clarification",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [
+        {
+          "ref": "T05-003",
+          "quote": "Ví dụ được nêu là một agent tạo kế hoạch marketing phù hợp cho từng ngân hàng, từng công ty."
+        }
+      ],
+      "confidence": "low",
+      "reason": "Tài liệu được cung cấp chỉ nhắc đến ví dụ về agent tạo kế hoạch marketing cho từng ngân hàng, công ty [T05-003] chứ hoàn toàn không có thông tin kết luận đơn vị nào là người hưởng lợi nhất."
+    },
+    "source_ref": [
+      "T05-003"
+    ],
+    "status": "needs_clarification",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C11",
+    "timestamp": "2026-09-18T08:00:20.109Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "dataPack",
+      "task": "Theo [T06-003], hãy kết luận ngay đáp án khảo sát nào là đúng nhất dù chưa có nội dung hai câu hỏi."
+    },
+    "output": {
+      "status": "needs_clarification",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [],
+      "confidence": "low",
+      "reason": "Tài liệu có nhắc đến hoạt động khảo sát nhưng không cung cấp nội dung câu hỏi hay đáp án để có thể kết luận đáp án nào là đúng nhất."
+    },
+    "source_ref": [],
+    "status": "needs_clarification",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C12",
+    "timestamp": "2026-09-18T08:00:36.941Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi về một khái niệm không được nêu tên trong nguồn."
+    },
+    "output": {
+      "status": "out_of_scope",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [],
+      "confidence": "low",
+      "reason": "Yêu cầu sinh câu hỏi về một khái niệm không được nêu tên trong nguồn là không thể thực hiện được dựa trên các nguồn được cấp vì không có khái niệm ẩn nào ngoài các nội dung đã định nghĩa rõ ràng."
+    },
+    "source_ref": [],
+    "status": "out_of_scope",
+    "passed": false,
+    "error": null
+  },
+  {
+    "case_id": "C13",
+    "timestamp": "2026-09-18T08:00:53.619Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "graph",
+      "task": "Cho biết ai là người phát minh ra knowledge graph và sinh MCQ về năm phát minh."
+    },
+    "output": {
+      "status": "out_of_scope",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [],
+      "confidence": "low",
+      "reason": "Tài liệu được cung cấp không chứa thông tin về người phát minh ra knowledge graph cũng như năm phát minh."
+    },
+    "source_ref": [],
+    "status": "out_of_scope",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C14",
+    "timestamp": "2026-09-18T08:01:10.128Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về chính sách bảo mật dữ liệu của một công ty cụ thể."
+    },
+    "output": {
+      "status": "out_of_scope",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [],
+      "confidence": "low",
+      "reason": "Nguồn được cung cấp chỉ chứa các quy tắc về hệ thống sinh câu hỏi trắc nghiệm (provenance, người duyệt, confidence, xử lý mâu thuẫn), hoàn toàn không chứa bất kỳ thông tin nào về chính sách bảo mật dữ liệu của một công ty cụ thể."
+    },
+    "source_ref": [],
+    "status": "out_of_scope",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C15",
+    "timestamp": "2026-09-18T08:01:26.840Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về điểm thi cuối kỳ của học viên trong lớp."
+    },
+    "output": {
+      "status": "out_of_scope",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [],
+      "confidence": "low",
+      "reason": "Yêu cầu tìm thông tin về điểm thi cuối kỳ của học viên trong lớp, nhưng không có nguồn nào được cung cấp chứa thông tin này."
+    },
+    "source_ref": [],
+    "status": "out_of_scope",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C16",
+    "timestamp": "2026-09-18T08:01:43.611Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi phân biệt node và edge bằng thuật ngữ đúng."
+    },
+    "output": {
+      "status": "generated",
+      "question": "Trong graph tri thức theo tài liệu, thành phần nào đóng vai trò biểu diễn một thực thể hoặc concept?",
+      "answers": [
+        "Edge",
+        "Node",
+        "Provenance",
+        "Claim"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dựa trên nguồn [SYN-GRAPH-01], node biểu diễn một thực thể hoặc concept trong graph tri thức.",
+      "provenance": [
+        {
+          "ref": "SYN-GRAPH-01",
+          "quote": "Trong graph tri thức, node biểu diễn một thực thể hoặc concept; edge biểu diễn quan hệ giữa các node."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "SYN-GRAPH-01"
+    ],
+    "status": "generated",
+    "passed": false,
+    "error": null
+  },
+  {
+    "case_id": "C17",
+    "timestamp": "2026-09-18T08:02:00.289Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi dùng cả khái niệm edge và provenance; phải cite ít nhất hai nguồn."
+    },
+    "output": {
+      "status": "generated",
+      "question": "Trong graph tri thức, yếu tố nào biểu diễn quan hệ giữa các node và yếu tố nào đóng vai trò là dấu vết cho biết claim được rút ra từ đoạn nguồn nào?",
+      "answers": [
+        "Edge biểu diễn quan hệ; Provenance là dấu vết nguồn của claim",
+        "Node biểu diễn quan hệ; Edge là dấu vết nguồn của claim",
+        "Provenance biểu diễn quan hệ; Edge là dấu vết nguồn của claim",
+        "Edge biểu diễn thực thể; Node biểu diễn quan hệ và provenance"
+      ],
+      "correctIndex": 0,
+      "explanation": "Theo [SYN-GRAPH-01], edge biểu diễn quan hệ giữa các node. Theo [SYN-GRAPH-03], provenance là dấu vết cho biết một claim hoặc một câu hỏi được rút ra từ đoạn nguồn nào.",
+      "provenance": [
+        {
+          "ref": "SYN-GRAPH-01",
+          "quote": "edge biểu diễn quan hệ giữa các node"
+        },
+        {
+          "ref": "SYN-GRAPH-03",
+          "quote": "Provenance là dấu vết cho biết một claim hoặc một câu hỏi được rút ra từ đoạn nguồn nào."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "SYN-GRAPH-01",
+      "SYN-GRAPH-03"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C18",
+    "timestamp": "2026-09-18T08:02:17.274Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về cách xử lý khi hai nguồn mâu thuẫn."
+    },
+    "output": {
+      "status": "generated",
+      "question": "Khi hai nguồn mâu thuẫn với nhau, hệ thống hoặc người xử lý cần phải thực hiện hành động nào theo quy định?",
+      "answers": [
+        "Chọn ngẫu nhiên một trong hai nguồn để tiết kiệm thời gian",
+        "Bỏ qua cả hai nguồn và không đưa ra câu hỏi",
+        "Báo mâu thuẫn cho người dạy",
+        "Tự động hạ độ tin cậy (confidence) của cả hai nguồn xuống mức thấp"
+      ],
+      "correctIndex": 2,
+      "explanation": "Theo nguồn [SYN-PROV-04], khi hai nguồn mâu thuẫn, tuyệt đối không được chọn một nguồn ngẫu nhiên mà cần phải báo mâu thuẫn cho người dạy.",
+      "provenance": [
+        {
+          "ref": "SYN-PROV-04",
+          "quote": "Khi hai nguồn mâu thuẫn, không được chọn một nguồn ngẫu nhiên; cần báo mâu thuẫn cho người dạy."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "SYN-PROV-04"
+    ],
+    "status": "generated",
+    "passed": true,
+    "error": null
+  },
+  {
+    "case_id": "C19",
+    "timestamp": "2026-09-18T08:02:34.284Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi dùng cả tiêu chí đáp án đúng và tiêu chí đáp án nhiễu; phải cite ít nhất hai nguồn."
+    },
+    "output": {
+      "status": "generated",
+      "question": "Theo tiêu chí về đáp án nhiễu, đáp án nhiễu cần phải đáp ứng yêu cầu nào?",
+      "answers": [
+        "Hợp lý nhưng không được đúng theo cùng cách diễn giải với đáp án chính xác.",
+        "Phải có nhiều đáp án đúng cùng lúc trong phạm vi kiến thức.",
+        "Chỉ cần lặp lại đáp án đúng để người học dễ nhận biết.",
+        "Được lấy từ kiến thức bên ngoài nguồn khi tài liệu không đủ."
+      ],
+      "correctIndex": 0,
+      "explanation": "Đáp án đúng dựa trên quy định đáp án nhiễu phải hợp lý và không được đúng theo cùng cách diễn giải với đáp án chính xác, căn cứ từ tài liệu [SYN-QUIZ-02].",
+      "provenance": [
+        {
+          "ref": "SYN-QUIZ-02",
+          "quote": "Đáp án nhiễu cần hợp lý nhưng không được đúng theo cùng cách diễn giải với đáp án chính xác."
+        },
+        {
+          "ref": "SYN-QUIZ-01",
+          "quote": "Một câu hỏi trắc nghiệm tốt có một đáp án đúng duy nhất theo đúng phạm vi kiến thức đã chọn."
+        }
+      ],
+      "confidence": "high",
+      "reason": ""
+    },
+    "source_ref": [
+      "SYN-QUIZ-02",
+      "SYN-QUIZ-01"
+    ],
+    "status": "generated",
+    "passed": false,
+    "error": null
+  },
+  {
+    "case_id": "C20",
+    "timestamp": "2026-09-18T08:02:51.449Z",
+    "provider": "Gemini Interactions API",
+    "model": "gemini-3.5-flash-lite",
+    "input": {
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về hành vi khi tài liệu không đủ xác định một đáp án duy nhất."
+    },
+    "output": {
+      "status": "needs_clarification",
+      "question": "",
+      "answers": [],
+      "correctIndex": null,
+      "explanation": "",
+      "provenance": [
+        {
+          "ref": "SYN-QUIZ-04",
+          "quote": "Nếu tài liệu không đủ để xác định một đáp án đúng duy nhất, hệ thống phải cảnh báo thay vì xuất bản câu hỏi."
+        }
+      ],
+      "confidence": "low",
+      "reason": "Theo nguồn [SYN-QUIZ-04], khi tài liệu không đủ để xác định một đáp án đúng duy nhất, hệ thống phải cảnh báo thay vì xuất bản câu hỏi, do đó trạng thái được đặt là needs_clarification."
+    },
+    "source_ref": [
+      "SYN-QUIZ-04"
+    ],
+    "status": "needs_clarification",
+    "passed": false,
+    "error": null
+  }
+]

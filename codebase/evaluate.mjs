@@ -108,8 +108,8 @@ function evaluateCase(testCase, response) {
 }
 
 await mkdir(evalDir, { recursive: true });
-if (!process.env.GEMINI_API_KEY) {
-  console.error('Khong chay eval: thieu GEMINI_API_KEY. Khong tao ket qua gia.');
+if (!process.env.API_KEY) {
+  console.error('Khong chay eval: thieu API_KEY. Khong tao ket qua gia.');
   process.exitCode = 2;
 } else {
   const runId = await nextRunId();
@@ -119,7 +119,6 @@ if (!process.env.GEMINI_API_KEY) {
       const response = await generateQuiz({ lessonKey: testCase.lessonKey, task: testCase.task, caseId: testCase.id });
       rows.push(evaluateCase(testCase, response));
       console.log(`${testCase.id}: ${rows.at(-1).passed ? 'PASS' : 'FAIL'}`);
-      await new Promise(resolve => setTimeout(resolve, 15000));
     } catch (error) {
       rows.push({
         ...testCase,
@@ -134,6 +133,7 @@ if (!process.env.GEMINI_API_KEY) {
       });
       console.log(`${testCase.id}: ERROR`);
     }
+    await new Promise(resolve => setTimeout(resolve, 15000));
   }
 
   const generated = rows.filter((row) => row.status === 'generated');
