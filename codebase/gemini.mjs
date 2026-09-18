@@ -45,7 +45,8 @@ function validateResult(candidate, lesson) {
   const provenance = Array.isArray(candidate.provenance) ? candidate.provenance : [];
   const safeProvenance = provenance
     .filter((item) => item && allowedRefs.has(item.ref))
-    .map((item) => ({ ref: item.ref, quote: String(item.quote ?? '').trim() }));
+    .map((item) => ({ ref: item.ref, quote: String(item.quote ?? '').trim() }))
+    .filter((item) => item.quote && lesson.passages.some((passage) => passage.ref === item.ref && passage.text.includes(item.quote)));
 
   if (status !== 'generated') {
     return {
@@ -97,18 +98,35 @@ export async function generateQuiz({ lessonKey, task, caseId = 'interactive' }) 
   const startedAt = new Date().toISOString();
   const started = performance.now();
   const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const prompt = buildPrompt(lesson, task);
   let response;
   try {
     response = await fetch(GEMINI_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-      body: JSON.stringify({ model, store: false, input: buildPrompt(lesson, task) })
+      // Interactions API requires an array of user-input steps when store=false.
+      // Keeping the request stateless prevents one eval case from affecting another.
+      body: JSON.stringify({
+        model,
+        store: false,
+        input: [{ type: 'user_input', content: prompt }]
+      })
     });
   } catch {
     throw appError('Không kết nối được Gemini API.', 'NETWORK_ERROR', 502);
   }
 
-  const payload = await response.json().catch(() => ({}));
+  const rawPayload = await response.text();
+  let payload = {};
+  try {
+    payload = rawPayload ? JSON.parse(rawPayload) : {};
+  } catch {
+    payload = {};
+  }
+  if (!response.ok && rawPayload.trim()) {
+    const detail = payload?.error?.message || payload?.message || rawPayload.trim().slice(0, 500);
+    throw appError(`Gemini API HTTP ${response.status}: ${detail}`, 'GEMINI_API_ERROR', response.status);
+  }
   if (!response.ok) {
     const message = payload?.error?.message || `Gemini API trả về HTTP ${response.status}.`;
     throw appError(message, 'GEMINI_API_ERROR', response.status);

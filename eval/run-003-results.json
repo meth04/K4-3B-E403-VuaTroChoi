@@ -1,0 +1,917 @@
+{
+  "runId": "003",
+  "generatedAt": "2026-09-18T03:50:28.501Z",
+  "dataset": "Mixed fixture: 11 data-pack-derived cases with short anonymized excerpts + 9 synthetic cases.",
+  "protectedSource": "Data/chatlog/Transcript.md; refs Txx-NNN; protected files are not committed.",
+  "total": 20,
+  "dataPackCases": 11,
+  "passed": 6,
+  "passRate": 30,
+  "factualityCorrect": "9/20",
+  "answerCorrect": "8/7",
+  "provenanceCorrect": "9/20",
+  "outOfScopeBlocked": "0/3",
+  "qualityBar": "PASS signal requires >=16/20 total, >=18/20 provenance-correct, and 3/3 out-of-scope blocked.",
+  "qualityBarReached": false,
+  "manualReviewRequired": "Two independent reviewers must complete at least C09, C10, C13, C17 and C19 before using this run in CP3.",
+  "rows": [
+    {
+      "id": "C01",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T02-001"
+      ],
+      "task": "Theo [T02-001], học viên được nhắc làm gì với bài làm?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "chia sẻ",
+        "Discord"
+      ],
+      "factualityTerms": [
+        "chia sẻ",
+        "Discord"
+      ],
+      "status": "generated",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "PASS: status, structure, answer, factuality, provenance and scope contract.",
+      "failures": [],
+      "result": {
+        "status": "generated",
+        "question": "Theo [T02-001], giảng viên nhắc học viên làm gì với bài làm?",
+        "answers": [
+          "Chia sẻ bài làm lên Discord và trao đổi với các học viên khác",
+          "Nộp bài làm qua email cá nhân của giảng viên",
+          "Lưu bài làm vào thư mục Google Drive của lớp",
+          "In bài làm ra giấy để nộp vào buổi học tiếp theo"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo nguồn [T02-001], giảng viên đã nhắc học viên chia sẻ bài làm lên Discord và trao đổi cùng các học viên khác.",
+        "provenance": [
+          {
+            "ref": "T02-001",
+            "quote": "Giảng viên nhắc học viên chia sẻ bài làm lên Discord và trao đổi với các học viên khác."
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C01",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:46:38.212Z",
+        "durationMs": 5567,
+        "sourceRefs": [
+          "T02-001"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C02",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T02-002"
+      ],
+      "task": "Theo [T02-002], lỗi nào được chỉ ra trong bài ma trận tác động – nỗ lực?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "hai trục",
+        "đặt nhầm"
+      ],
+      "factualityTerms": [
+        "hai trục",
+        "đặt nhầm"
+      ],
+      "status": "generated",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "PASS: status, structure, answer, factuality, provenance and scope contract.",
+      "failures": [],
+      "result": {
+        "status": "generated",
+        "question": "Theo thông tin được cung cấp, lỗi nào được giảng viên chỉ ra trong bài ma trận tác động – nỗ lực?",
+        "answers": [
+          "Hai trục biểu đồ bị đặt nhầm",
+          "Dữ liệu nỗ lực bị tính toán sai",
+          "Thiếu thông tin về mức độ tác động",
+          "Các nhãn phân loại bị gắn nhầm vị trí"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo [T02-002], trong bài ma trận tác động – nỗ lực, giảng viên đã chỉ ra chỗ hai trục biểu đồ bị đặt nhầm.",
+        "provenance": [
+          {
+            "ref": "T02-002",
+            "quote": "Trong bài ma trận tác động – nỗ lực, giảng viên chỉ ra chỗ hai trục biểu đồ bị đặt nhầm."
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C02",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:46:43.783Z",
+        "durationMs": 13899,
+        "sourceRefs": [
+          "T02-002"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C03",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T03-002"
+      ],
+      "task": "Theo [T03-002], startup của giảng viên được mô tả là nền tảng gì?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "AI design platform"
+      ],
+      "factualityTerms": [
+        "AI design platform"
+      ],
+      "status": "generated",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "PASS: status, structure, answer, factuality, provenance and scope contract.",
+      "failures": [],
+      "result": {
+        "status": "generated",
+        "question": "Theo thông tin được cung cấp, startup của giảng viên được mô tả là nền tảng gì?",
+        "answers": [
+          "AI design platform",
+          "Blockchain platform",
+          "Autonomous driving platform",
+          "Marketing agent platform"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo nguồn [T03-002], startup của Mỹ mà giảng viên đang làm việc là một AI design platform.",
+        "provenance": [
+          {
+            "ref": "T03-002",
+            "quote": "startup này là một AI design platform"
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C03",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:46:57.683Z",
+        "durationMs": 43326,
+        "sourceRefs": [
+          "T03-002"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C04",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T03-003"
+      ],
+      "task": "Theo [T03-003], expertise của giảng viên là lĩnh vực nào?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "computer vision"
+      ],
+      "factualityTerms": [
+        "computer vision"
+      ],
+      "status": "generated",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "PASS: status, structure, answer, factuality, provenance and scope contract.",
+      "failures": [],
+      "result": {
+        "status": "generated",
+        "question": "Theo chia sẻ của giảng viên, lĩnh vực chuyên môn (expertise) của giảng viên là gì?",
+        "answers": [
+          "Computer vision",
+          "Xử lý ngôn ngữ tự nhiên (LLM)",
+          "Blockchain",
+          "Marketing Agent"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo [T03-003], giảng viên cho biết expertise của mình là computer vision và từng tham gia các dự án xe tự hành.",
+        "provenance": [
+          {
+            "ref": "T03-003",
+            "quote": "Giảng viên nói expertise của mình là computer vision và từng làm các dự án xe tự hành."
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C04",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:47:41.008Z",
+        "durationMs": 18093,
+        "sourceRefs": [
+          "T03-003"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C05",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T03-004"
+      ],
+      "task": "Theo [T03-004], khảo sát nhanh hỏi về những trạng thái học tập hoặc việc làm nào?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "sinh viên",
+        "đi làm"
+      ],
+      "factualityTerms": [
+        "sinh viên",
+        "đi làm"
+      ],
+      "status": "generated",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "PASS: status, structure, answer, factuality, provenance and scope contract.",
+      "failures": [],
+      "result": {
+        "status": "generated",
+        "question": "Theo khảo sát nhanh về nền tảng học viên, nội dung khảo sát hỏi về những trạng thái học tập hoặc việc làm nào?",
+        "answers": [
+          "Còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm",
+          "Sinh viên năm nhất, sinh viên năm hai, sinh viên năm ba hay sinh viên năm cuối",
+          "Chưa đi làm, thực tập sinh, nhân viên chính thức hay quản lý",
+          "Học đại học, học tiến sĩ, nghiên cứu sinh hay làm việc tự do"
+        ],
+        "correctIndex": 0,
+        "explanation": "Nguồn [T03-004] nêu rõ khảo sát nhanh về nền tảng học viên gồm các trạng thái: còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm.",
+        "provenance": [
+          {
+            "ref": "T03-004",
+            "quote": "Lớp học có một khảo sát nhanh về nền tảng học viên: còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm."
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C05",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:47:59.101Z",
+        "durationMs": 8377,
+        "sourceRefs": [
+          "T03-004"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C06",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T04-002"
+      ],
+      "task": "Theo [T04-002], nhóm nào chiếm khoảng 70% lớp?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "70%",
+        "sinh viên năm cuối"
+      ],
+      "factualityTerms": [
+        "70%",
+        "sinh viên năm cuối"
+      ],
+      "status": "generated",
+      "passed": false,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": false,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "FAIL: correct answer misses required terms: 70%, sinh viên năm cuối",
+      "failures": [
+        "correct answer misses required terms: 70%, sinh viên năm cuối"
+      ],
+      "result": {
+        "status": "generated",
+        "question": "Theo thông tin được cung cấp, nhóm đối tượng nào chiếm khoảng 70% lớp học?",
+        "answers": [
+          "Sinh viên năm cuối",
+          "Người đã đi làm",
+          "Học viên cao học/thạc sĩ",
+          "Sinh viên mới ra trường"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo nguồn [T04-002], lớp học có khoảng 70% là sinh viên năm cuối và khoảng 30% là người đã đi làm.",
+        "provenance": [
+          {
+            "ref": "T04-002",
+            "quote": "Lớp có khoảng 70% là sinh viên năm cuối và khoảng 30% là người đã đi làm."
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C06",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:48:07.479Z",
+        "durationMs": 18166,
+        "sourceRefs": [
+          "T04-002"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C07",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T04-003"
+      ],
+      "task": "Theo [T04-003], buổi đầu tập trung vào nền tảng nào?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "mô hình ngôn ngữ lớn"
+      ],
+      "factualityTerms": [
+        "mô hình ngôn ngữ lớn"
+      ],
+      "status": "generated",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "PASS: status, structure, answer, factuality, provenance and scope contract.",
+      "failures": [],
+      "result": {
+        "status": "generated",
+        "question": "Theo [T04-003], buổi đầu tập trung học về nền tảng nào?",
+        "answers": [
+          "Nền tảng của AI và các mô hình ngôn ngữ lớn (LLM)",
+          "Nền tảng về thị giác máy tính và xe tự hành",
+          "Nền tảng ma trận tác động – nỗ lực",
+          "Nền tảng công nghệ blockchain"
+        ],
+        "correctIndex": 0,
+        "explanation": "Theo [T04-003], buổi đầu học về nền tảng của AI và các mô hình ngôn ngữ lớn, tức LLM.",
+        "provenance": [
+          {
+            "ref": "T04-003",
+            "quote": "Buổi đầu học về nền tảng của AI và các mô hình ngôn ngữ lớn, tức LLM."
+          }
+        ],
+        "confidence": "high",
+        "reason": ""
+      },
+      "trace": {
+        "caseId": "C07",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:48:25.645Z",
+        "durationMs": 17925,
+        "sourceRefs": [
+          "T04-003"
+        ],
+        "status": "generated"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C08",
+      "layer": "source_truth",
+      "type": "normal",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T04-004"
+      ],
+      "task": "Theo [T04-004], tên tiếng Anh mà giảng viên dùng là gì?",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "Blue"
+      ],
+      "factualityTerms": [
+        "Blue"
+      ],
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 500: gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later.",
+      "failures": [
+        "Gemini API HTTP 500: gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C09",
+      "layer": "ambiguity",
+      "type": "ambiguous",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T05-002"
+      ],
+      "task": "Theo [T05-002], hãy chọn duy nhất một bài toán kinh doanh có ý nghĩa nhất để xây ngay.",
+      "expectedStatus": "needs_clarification",
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 500: gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later.",
+      "failures": [
+        "Gemini API HTTP 500: gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C10",
+      "layer": "ambiguity",
+      "type": "ambiguous",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T05-003"
+      ],
+      "task": "Theo [T05-003], hãy kết luận ngân hàng hay công ty nào chắc chắn là người hưởng lợi nhất.",
+      "expectedStatus": "needs_clarification",
+      "status": "out_of_scope",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "FAIL: status expected=needs_clarification received=out_of_scope",
+      "failures": [
+        "status expected=needs_clarification received=out_of_scope"
+      ],
+      "result": {
+        "status": "out_of_scope",
+        "question": "",
+        "answers": [],
+        "correctIndex": null,
+        "explanation": "",
+        "provenance": [],
+        "confidence": "low",
+        "reason": "Nguồn [T05-003] chỉ nêu ví dụ về một agent tạo kế hoạch marketing phù hợp cho từng ngân hàng, từng công ty, hoàn toàn không có dữ liệu để kết luận ngân hàng hay công ty nào chắc chắn là người hưởng lợi nhất."
+      },
+      "trace": {
+        "caseId": "C10",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:49:22.267Z",
+        "durationMs": 18409,
+        "sourceRefs": [],
+        "status": "out_of_scope"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C11",
+      "layer": "ambiguity",
+      "type": "ambiguous",
+      "origin": "data-pack",
+      "lessonKey": "dataPack",
+      "sourceRefs": [
+        "T06-003"
+      ],
+      "task": "Theo [T06-003], hãy kết luận ngay đáp án khảo sát nào là đúng nhất dù chưa có nội dung hai câu hỏi.",
+      "expectedStatus": "needs_clarification",
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 500: gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later.",
+      "failures": [
+        "Gemini API HTTP 500: gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C12",
+      "layer": "ambiguity",
+      "type": "ambiguous",
+      "origin": "synthetic",
+      "lessonKey": "graph",
+      "task": "Sinh câu hỏi về một khái niệm không được nêu tên trong nguồn.",
+      "expectedStatus": "needs_clarification",
+      "status": "out_of_scope",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": true,
+        "answer": true,
+        "factuality": true,
+        "provenance": true,
+        "safeNonGeneration": true
+      },
+      "automatedReason": "FAIL: status expected=needs_clarification received=out_of_scope",
+      "failures": [
+        "status expected=needs_clarification received=out_of_scope"
+      ],
+      "result": {
+        "status": "out_of_scope",
+        "question": "",
+        "answers": [],
+        "correctIndex": null,
+        "explanation": "",
+        "provenance": [],
+        "confidence": "low",
+        "reason": "Yêu cầu sinh câu hỏi về một khái niệm không được nêu tên trong nguồn nằm ngoài phạm vi các tài liệu được cung cấp và vi phạm quy tắc không dùng kiến thức bên ngoài."
+      },
+      "trace": {
+        "caseId": "C12",
+        "provider": "Gemini Interactions API",
+        "model": "gemini-3.8-flash",
+        "interactionId": null,
+        "startedAt": "2026-09-18T03:49:58.996Z",
+        "durationMs": 11609,
+        "sourceRefs": [],
+        "status": "out_of_scope"
+      },
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C13",
+      "layer": "out_of_scope",
+      "type": "out_of_scope",
+      "origin": "synthetic",
+      "lessonKey": "graph",
+      "task": "Cho biết ai là người phát minh ra knowledge graph và sinh MCQ về năm phát minh.",
+      "expectedStatus": "out_of_scope",
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 44.772925925s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.8-flash\nPlease retry in 44.772925925s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C14",
+      "layer": "out_of_scope",
+      "type": "out_of_scope",
+      "origin": "synthetic",
+      "lessonKey": "evidence",
+      "task": "Sinh câu hỏi về chính sách bảo mật dữ liệu của một công ty cụ thể.",
+      "expectedStatus": "out_of_scope",
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 43.549208705s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 43.549208705s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C15",
+      "layer": "out_of_scope",
+      "type": "out_of_scope",
+      "origin": "synthetic",
+      "lessonKey": "quiz",
+      "task": "Sinh câu hỏi về điểm thi cuối kỳ của học viên trong lớp.",
+      "expectedStatus": "out_of_scope",
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 43.076940299s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 43.076940299s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C16",
+      "layer": "domain",
+      "type": "domain",
+      "origin": "synthetic",
+      "lessonKey": "graph",
+      "sourceRefs": [
+        "SYN-GRAPH-01"
+      ],
+      "task": "Sinh câu hỏi phân biệt node và edge bằng thuật ngữ đúng.",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "node",
+        "edge"
+      ],
+      "factualityTerms": [
+        "node",
+        "edge"
+      ],
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 42.610627314s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 42.610627314s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C17",
+      "layer": "domain",
+      "type": "multi_source",
+      "origin": "synthetic",
+      "lessonKey": "graph",
+      "sourceRefs": [
+        "SYN-GRAPH-01",
+        "SYN-GRAPH-03"
+      ],
+      "task": "Sinh câu hỏi dùng cả khái niệm edge và provenance; phải cite ít nhất hai nguồn.",
+      "expectedStatus": "generated",
+      "minSources": 2,
+      "correctAnswerTerms": [
+        "edge",
+        "provenance"
+      ],
+      "factualityTerms": [
+        "edge",
+        "provenance"
+      ],
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 33.0554778s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 33.0554778s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C18",
+      "layer": "domain",
+      "type": "domain",
+      "origin": "synthetic",
+      "lessonKey": "evidence",
+      "sourceRefs": [
+        "SYN-PROV-04"
+      ],
+      "task": "Sinh câu hỏi về cách xử lý khi hai nguồn mâu thuẫn.",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "mâu thuẫn"
+      ],
+      "factualityTerms": [
+        "mâu thuẫn"
+      ],
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 32.594248477s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 32.594248477s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C19",
+      "layer": "domain",
+      "type": "multi_source",
+      "origin": "synthetic",
+      "lessonKey": "quiz",
+      "sourceRefs": [
+        "SYN-QUIZ-01",
+        "SYN-QUIZ-02"
+      ],
+      "task": "Sinh câu hỏi dùng cả tiêu chí đáp án đúng và tiêu chí đáp án nhiễu; phải cite ít nhất hai nguồn.",
+      "expectedStatus": "generated",
+      "minSources": 2,
+      "correctAnswerTerms": [
+        "đáp án đúng",
+        "đáp án nhiễu"
+      ],
+      "factualityTerms": [
+        "đáp án đúng",
+        "đáp án nhiễu"
+      ],
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 32.123005402s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 32.123005402s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    },
+    {
+      "id": "C20",
+      "layer": "domain",
+      "type": "domain",
+      "origin": "synthetic",
+      "lessonKey": "quiz",
+      "sourceRefs": [
+        "SYN-QUIZ-04"
+      ],
+      "task": "Sinh câu hỏi về hành vi khi tài liệu không đủ xác định một đáp án duy nhất.",
+      "expectedStatus": "generated",
+      "correctAnswerTerms": [
+        "cảnh báo"
+      ],
+      "factualityTerms": [
+        "cảnh báo"
+      ],
+      "status": "error",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "structure": false,
+        "answer": false,
+        "factuality": false,
+        "provenance": false,
+        "safeNonGeneration": false
+      },
+      "automatedReason": "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 31.65690471s.",
+      "failures": [
+        "Gemini API HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-3.8-flash\nPlease retry in 31.65690471s."
+      ],
+      "result": null,
+      "trace": null,
+      "manualReviewRequired": true
+    }
+  ]
+}

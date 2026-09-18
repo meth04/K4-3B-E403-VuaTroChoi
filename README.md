@@ -4,16 +4,15 @@
 
 ## 👥 Thành viên nhóm & Phân công vai trò
 
-**Lớp:** 3B · **Phòng:** ____ · **Cụm:** ____ · **Track:** ____
+**Lớp:** 3B · **Phòng:** E403 · **Cụm:** chưa phân cụm · **Track:** C — Lesson Studio / C1
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Nguyễn Văn Thân | 2A202602859 | Đội trưởng · Product lead | Chốt job/lát cắt/scope; mining evidence và impact; viết spec, quality bar; điều phối; pitch/Q&A |
+| Nguyễn Ngọc Linh | 2A202602480 | Data/AI lead | Làm sạch/chọn transcript; source refs; prompt/output contract; golden set và eval |
+| Dương Hà Đức Anh | 2A202602977 | Prototype/validation lead | Xây UI/flow tạo–duyệt quiz; tích hợp AI; xử lý case thiếu nguồn; demo và validation |
 
-> Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
+**Repo công khai:** https://github.com/meth04/K4-3B-E403-VuaTroChoi
 
 - Thời lượng: **39 giờ** từ phát đề đến thuyết trình (ca 3B) — LAB 5 (phát đề + build) · LEC 6 (tiếp tục build theo ca) · LAB 6 (vòng thi)
 - Nhóm: **3-4 người** · thi theo phòng (E403 / E402), chia cụm rồi chung kết phòng — xem *Thể thức thi*

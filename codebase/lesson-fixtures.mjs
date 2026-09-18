@@ -1,5 +1,18 @@
-// Synthetic teaching material for the CP3 prototype. It is intentionally not
-// copied from the protected hackathon data pack.
+// Public fixture material keeps only short, anonymized excerpts. Protected
+// source files remain local under Data/chatlog and are referenced by Txx-NNN.
+const DATA_PACK_PASSAGES = [
+  { ref: 'T02-001', text: 'Giảng viên nhắc học viên chia sẻ bài làm lên Discord và trao đổi với các học viên khác.' },
+  { ref: 'T02-002', text: 'Trong bài ma trận tác động – nỗ lực, giảng viên chỉ ra chỗ hai trục biểu đồ bị đặt nhầm.' },
+  { ref: 'T03-002', text: 'Giảng viên nói mình đang là AI Research Engineer tại một startup của Mỹ; startup này là một AI design platform.' },
+  { ref: 'T03-003', text: 'Giảng viên nói expertise của mình là computer vision và từng làm các dự án xe tự hành.' },
+  { ref: 'T03-004', text: 'Lớp học có một khảo sát nhanh về nền tảng học viên: còn là sinh viên, đã tốt nghiệp, học thạc sĩ hay đã đi làm.' },
+  { ref: 'T04-002', text: 'Lớp có khoảng 70% là sinh viên năm cuối và khoảng 30% là người đã đi làm.' },
+  { ref: 'T04-003', text: 'Buổi đầu học về nền tảng của AI và các mô hình ngôn ngữ lớn, tức LLM.' },
+  { ref: 'T04-004', text: 'Giảng viên kể từng làm trong blockchain nên có tên tiếng Anh là Blue.' },
+  { ref: 'T05-002', text: 'Nội dung buổi chiều là xác định bài toán kinh doanh cho AI: chọn làm cái gì và không làm cái gì.' },
+  { ref: 'T05-003', text: 'Ví dụ được nêu là một agent tạo kế hoạch marketing phù hợp cho từng ngân hàng, từng công ty.' },
+  { ref: 'T06-003', text: 'Học viên quét lại mã, vào link và trả lời hai câu hỏi khảo sát; giảng viên hiển thị kết quả trực tiếp.' }
+];
 export const LESSONS = {
   graph: {
     title: 'Graph tri thức cơ bản',
@@ -33,6 +46,12 @@ export const LESSONS = {
       { ref: 'SYN-QUIZ-03', text: 'Giải thích sau đáp án phải nêu được căn cứ nội dung, không chỉ lặp lại đáp án đúng.' },
       { ref: 'SYN-QUIZ-04', text: 'Nếu tài liệu không đủ để xác định một đáp án đúng duy nhất, hệ thống phải cảnh báo thay vì xuất bản câu hỏi.' }
     ]
+  },
+  dataPack: {
+    title: 'Transcript VLearn — trích đoạn có mã nguồn',
+    description: 'Các đoạn transcript ngắn đã ẩn danh; mỗi đoạn giữ mã Txx-NNN để kiểm tra provenance.',
+    sourceLabel: '11 trích đoạn transcript · mã [Txx-NNN] · không dùng slide',
+    passages: DATA_PACK_PASSAGES
   }
 };
 

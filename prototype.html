@@ -147,6 +147,7 @@
                 <option value="graph">Graph tri thức cơ bản</option>
                 <option value="evidence">Provenance trong nội dung học tập</option>
                 <option value="quiz">Thiết kế câu hỏi trắc nghiệm</option>
+                <option value="dataPack">Transcript VLearn (data-pack, mã Txx-NNN)</option>
               </select>
               <div class="scope-card" id="scopeCard" hidden>
                 <strong id="scopeTitle">Graph tri thức cơ bản</strong>
@@ -200,6 +201,7 @@
   <div class="toast" id="toast" role="status"></div>
   <script>
     const lessons = {
+      dataPack: { title: 'Transcript VLearn — trích đoạn có mã nguồn', description: '11 trích đoạn transcript ngắn, ẩn danh, có mã Txx-NNN; không dùng slide.', source: '11 trích đoạn transcript có mã Txx-NNN' },
       graph: { title: 'Graph tri thức cơ bản', description: 'Quan hệ giữa concept, thực thể và cạnh trong một graph.', source: '4 đoạn nguồn synthetic' },
       evidence: { title: 'Provenance trong nội dung học tập', description: 'Cách truy ngược một nhận định về đúng đoạn tài liệu gốc.', source: '4 đoạn nguồn synthetic' },
       quiz: { title: 'Thiết kế câu hỏi trắc nghiệm', description: 'Các thành phần của một câu hỏi có một đáp án đúng.', source: '4 đoạn nguồn synthetic' }

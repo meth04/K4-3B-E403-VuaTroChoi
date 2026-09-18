@@ -67,11 +67,11 @@ Bộ 20 case phải phủ đủ **4 lớp chỗ khó** theo guide. Mỗi lớp c
 `eval/` phải ghi mã nguồn của từng case; không dán nguyên văn dài. Các case còn lại có thể
 là dữ liệu giả hoặc biến thể do nhóm tự viết, nhưng phải ghi rõ nguồn gốc.
 
-**Trạng thái fixture hiện tại:** `eval/golden-set.mjs` đã có đủ 20 case synthetic với mã
-`SYN-*` để chạy end-to-end mà không đưa data pack bảo mật vào repo. Các case này được gắn
-nhãn synthetic và **không được khai là chatlog/transcript thật**. Trước khi nộp CP3, thay
-ít nhất 10 case bằng case được phép lấy/phát triển từ data pack và chỉ giữ mã nguồn/trích
-ngắn theo quy định bảo mật.
+**Trạng thái fixture hiện tại:** `eval/golden-set.mjs` có 20 case, gồm **11 case
+data-pack-derived** và 9 case synthetic. Các case data-pack-derived chỉ giữ source ref
+`Txx-NNN` và excerpt ngắn trong `codebase/lesson-fixtures.mjs`; nguồn cục bộ là
+`Data/chatlog/Transcript.md`. Workspace hiện có 611 đoạn transcript được đánh dấu và không
+có file slide được dùng trong prototype. Không đưa nguyên data pack vào repo công khai.
 
 ### 3.1. Registry case phải chốt trước khi chạy
 
@@ -81,29 +81,30 @@ tương đương:
 
 | Mã | Lớp | Loại | Nguồn gốc/mã nguồn | Input hoặc task | Hành vi kỳ vọng | Source ref kỳ vọng |
 |---|---|---|---|---|---|---|
-| C01 | ① | Thường | Synthetic: `SYN-GRAPH-01` | Quan hệ giữa hai thực thể | Sinh MCQ có căn cứ | `SYN-GRAPH-01` |
-| C02 | ① | Thường | Synthetic: `SYN-GRAPH-02` | Ý nghĩa hướng của edge | Sinh MCQ có căn cứ | `SYN-GRAPH-02` |
-| C03 | ① | Thường | Synthetic: `SYN-GRAPH-03` | Ý nghĩa provenance | Sinh MCQ có căn cứ | `SYN-GRAPH-03` |
-| C04 | ① | Thường | Synthetic: `SYN-PROV-01` | Provenance cụ thể đến mức nào | Sinh MCQ có căn cứ | `SYN-PROV-01` |
-| C05 | ① | Thường | Synthetic: `SYN-PROV-02` | Người duyệt dùng provenance làm gì | Sinh MCQ có căn cứ | `SYN-PROV-02` |
-| C06 | ① | Thường | Synthetic: `SYN-QUIZ-01` | Số đáp án đúng của MCQ tốt | Sinh MCQ có căn cứ | `SYN-QUIZ-01` |
-| C07 | ① | Thường | Synthetic: `SYN-QUIZ-02` | Yêu cầu với đáp án nhiễu | Sinh MCQ có căn cứ | `SYN-QUIZ-02` |
-| C08 | ① | Thường | Synthetic: `SYN-QUIZ-03` | Vai trò giải thích sau đáp án | Sinh MCQ có căn cứ | `SYN-QUIZ-03` |
-| C09 | ② | Mơ hồ | Synthetic: `SYN-GRAPH-*` | “Loại graph tốt nhất” | Cảnh báo/hỏi lại | Không đủ nguồn |
-| C10 | ② | Mơ hồ | Synthetic: `SYN-PROV-03` | “Confidence thấp luôn sai” | Cảnh báo/hỏi lại | `SYN-PROV-03` |
-| C11 | ② | Mơ hồ | Synthetic: `SYN-QUIZ-*` | MCQ có hai đáp án đúng | Cảnh báo/hỏi lại | Không đủ nguồn |
-| C12 | ② | Mơ hồ | Synthetic: `SYN-GRAPH-*` | Khái niệm không có trong nguồn | Cảnh báo/hỏi lại | Không đủ nguồn |
+| C01 | ① | Thường | Data-pack: `T02-001` | Học viên được nhắc làm gì với bài làm? | Sinh MCQ có căn cứ | `T02-001` |
+| C02 | ① | Thường | Data-pack: `T02-002` | Lỗi nào được chỉ ra trong bài ma trận tác động–nỗ lực? | Sinh MCQ có căn cứ | `T02-002` |
+| C03 | ① | Thường | Data-pack: `T03-002` | Startup của giảng viên được mô tả là nền tảng gì? | Sinh MCQ có căn cứ | `T03-002` |
+| C04 | ① | Thường | Data-pack: `T03-003` | Expertise của giảng viên là lĩnh vực nào? | Sinh MCQ có căn cứ | `T03-003` |
+| C05 | ① | Thường | Data-pack: `T03-004` | Khảo sát nhanh hỏi về những trạng thái học tập hoặc việc làm nào? | Sinh MCQ có căn cứ | `T03-004` |
+| C06 | ① | Thường | Data-pack: `T04-002` | Nhóm nào chiếm khoảng 70% lớp? | Sinh MCQ có căn cứ | `T04-002` |
+| C07 | ① | Thường | Data-pack: `T04-003` | Buổi đầu tập trung vào nền tảng nào? | Sinh MCQ có căn cứ | `T04-003` |
+| C08 | ① | Thường | Data-pack: `T04-004` | Tên tiếng Anh mà giảng viên dùng là gì? | Sinh MCQ có căn cứ | `T04-004` |
+| C09 | ② | Mơ hồ | Data-pack: `T05-002` | Chọn duy nhất một bài toán kinh doanh có ý nghĩa nhất để xây ngay | Cảnh báo/hỏi lại | `T05-002` (không đủ để chọn duy nhất) |
+| C10 | ② | Mơ hồ | Data-pack: `T05-003` | Kết luận ngân hàng hay công ty nào chắc chắn là người hưởng lợi nhất | Cảnh báo/hỏi lại | `T05-003` (không đủ để kết luận) |
+| C11 | ② | Mơ hồ | Data-pack: `T06-003` | Kết luận đáp án khảo sát đúng nhất khi chưa có nội dung hai câu hỏi | Cảnh báo/hỏi lại | `T06-003` (thiếu nội dung khảo sát) |
+| C12 | ② | Mơ hồ | Synthetic: không có source ref | Khái niệm không được nêu trong nguồn | Cảnh báo/hỏi lại | Không đủ nguồn |
 | C13 | ③ | Ngoài scope | Synthetic | Người phát minh knowledge graph | Từ chối/báo giới hạn | Không khẳng định |
-| C14 | ③ | Ngoài scope | Synthetic | Chính sách bảo mật công ty | Từ chối/báo giới hạn | Không khẳng định |
-| C15 | ③ | Ngoài scope | Synthetic | Điểm thi cuối kỳ học viên | Từ chối/báo giới hạn | Không khẳng định |
-| C16 | ④ | Domain | Synthetic: `SYN-GRAPH-01` | Phân biệt node và edge | Sinh đúng thuật ngữ | `SYN-GRAPH-01` |
-| C17 | ④ | Nhiều nguồn | Synthetic: `SYN-GRAPH-01,03` | Edge và provenance | Gắn đủ nhiều provenance | `SYN-GRAPH-01`, `SYN-GRAPH-03` |
-| C18 | ④ | Domain | Synthetic: `SYN-PROV-04` | Xử lý hai nguồn mâu thuẫn | Sinh đúng thuật ngữ | `SYN-PROV-04` |
-| C19 | ④ | Nhiều nguồn | Synthetic: `SYN-QUIZ-01,02` | Đáp án đúng và đáp án nhiễu | Gắn đủ nhiều provenance | `SYN-QUIZ-01`, `SYN-QUIZ-02` |
-| C20 | ④ | Domain | Synthetic: `SYN-QUIZ-04` | Nguồn không đủ một đáp án duy nhất | Sinh đúng thuật ngữ | `SYN-QUIZ-04` |
+| C14 | ③ | Ngoài scope | Synthetic | Chính sách bảo mật của một công ty cụ thể | Từ chối/báo giới hạn | Không khẳng định |
+| C15 | ③ | Ngoài scope | Synthetic | Điểm thi cuối kỳ của học viên | Từ chối/báo giới hạn | Không khẳng định |
+| C16 | ④ | Domain | Synthetic: `SYN-GRAPH-01` | Phân biệt node và edge bằng thuật ngữ đúng | Sinh đúng thuật ngữ | `SYN-GRAPH-01` |
+| C17 | ④ | Nhiều nguồn | Synthetic: `SYN-GRAPH-01`, `SYN-GRAPH-03` | Dùng cả edge và provenance; cite ít nhất hai nguồn | Gắn đủ nhiều provenance | `SYN-GRAPH-01`, `SYN-GRAPH-03` |
+| C18 | ④ | Domain | Synthetic: `SYN-PROV-04` | Xử lý khi hai nguồn mâu thuẫn | Sinh đúng thuật ngữ | `SYN-PROV-04` |
+| C19 | ④ | Nhiều nguồn | Synthetic: `SYN-QUIZ-01`, `SYN-QUIZ-02` | Dùng cả tiêu chí đáp án đúng và đáp án nhiễu | Gắn đủ nhiều provenance | `SYN-QUIZ-01`, `SYN-QUIZ-02` |
+| C20 | ④ | Domain | Synthetic: `SYN-QUIZ-04` | Xử lý khi nguồn không đủ xác định một đáp án duy nhất | Sinh đúng thuật ngữ | `SYN-QUIZ-04` |
 
 Chi tiết task machine-readable được giữ trong `eval/golden-set.mjs`; bảng này là bản tóm
-tắt để review CP3. Khi thay case synthetic bằng case data pack, cập nhật cả hai nơi.
+tắt đồng bộ để review CP3. Nếu thay đổi nguồn gốc, task, expected status hoặc source ref,
+phải cập nhật cả bảng này và `eval/golden-set.mjs` trong cùng một commit.
 
 ### Một case đạt khi đồng thời thỏa 4 điều
 
